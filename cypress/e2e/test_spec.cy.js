@@ -1,5 +1,6 @@
-describe('My First Test', () => {
-    it('Does not do much!', () => {
-      expect(true).to.equal(true)
+describe('The homepage', () => {
+    it('checks that there is a title', () => {
+        cy.visit('/openbook')
+        cy.get('h1').should('contain', 'OpenBook')
     })
   })
