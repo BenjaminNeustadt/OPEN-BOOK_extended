@@ -7,7 +7,7 @@ const BookstoreSchema = new mongoose.Schema({
   longitude: String,
   latitude: String,
   cafe: Boolean,
-  storeWebsite: Hyperlink,
+  storeWebsite: String,
 });
 
 const Bookstore = mongoose.model("Bookstore", BookstoreSchema);
