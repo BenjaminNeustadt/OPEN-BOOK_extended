@@ -4,3 +4,4 @@ describe('The homepage', () => {
         cy.get('h1').should('contain', 'OpenBook')
     })
   })
+  
