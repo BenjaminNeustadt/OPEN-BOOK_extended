@@ -4,21 +4,16 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
 jobs:
-  test:
-  
-
+  build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [16.x]
+        mongodb-version: ['5.0']
 
     steps:
     - uses: actions/checkout@v3
@@ -26,5 +21,10 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+    - name: Start MongoDB
+      uses: supercharge/mongodb-github-action@1.7.0
+      with:
+          mongodb-version: ${{ matrix.mongodb-version }}
+    - run: npm run
+    - run: npm run test:unit
     
