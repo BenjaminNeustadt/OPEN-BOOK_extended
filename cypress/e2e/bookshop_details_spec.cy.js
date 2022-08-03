@@ -17,4 +17,14 @@ describe('The bookshop information', () => {
     cy.get('.bookshop-address').last().should('contain', 'London')
     cy.get('.bookshop-address').last().should('contain', 'SW9 8PS')
   })
+
+  it('contains links to the bookshop websites', () => {
+    cy.visit('/openbook')
+    cy.get('.website-link').first().click()
+    cy.url().should('be.equal', 'https://www.gaystheword.co.uk/')
+
+    cy.visit('/openbook')
+    cy.get('.website-link').last().click()
+    cy.url().should('be.equal', 'https://www.roundtablebooks.co.uk/')
+  })
 })
