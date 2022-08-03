@@ -20,6 +20,10 @@ Wireframes:
 <img src="/documents/wireframes/list-vs-map-wireframes.png">
 <img src="/documents/wireframes/wireframe-flow.png">
 
+
+## Moodboard:
+<img src="/documents/mood-board/MOOD-BOARD.png">
+
 ## User stories
 
 Using TDD, we implemented the following user stories:
