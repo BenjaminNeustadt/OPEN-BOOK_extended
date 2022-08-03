@@ -10,34 +10,20 @@ app.get("/openbook", (req, res) => {
   res.render("index");
 });
 
-// REMOVED AS ADDED LATER
-// const port = process.env.PORT || 3000;
-
 app.listen(port, () => {
   console.log("website is running");
 });
 
-// DATABASE
+const debug = require("debug")("openbook:server");
+const http = require("http");
+const mongoose = require("mongoose");
 
-/**
- * Module dependencies.
- */
-
-// var app = require("../app");
-var debug = require("debug")("openbook:server");
-var http = require("http");
-var mongoose = require("mongoose");
-
-/**
- * Get port from environment and store in Express.
- */
+// Get port from environment and store in Express.
 
 var port = normalizePort(process.env.PORT || "3000");
 app.set("port", port);
 
-/**
- * Connect to MongoDB
- **/
+// Connect to MongoDB
 
 var mongoDbUrl = process.env.MONGODB_URI || "mongodb://0.0.0.0/openbook";
 
@@ -49,23 +35,15 @@ mongoose.connect(mongoDbUrl, {
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
-/**
- * Create HTTP server.
- */
-
+// Create HTTP server.
 var server = http.createServer(app);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
-
+// Listen on provided port, on all network interfaces.
 server.listen(port);
 server.on("error", onError);
 server.on("listening", onListening);
 
-/**
- * Normalize a port into a number, string, or false.
- */
+// Normalize a port into a number, string, or false.
 
 function normalizePort(val) {
   var port = parseInt(val, 10);
@@ -83,9 +61,8 @@ function normalizePort(val) {
   return false;
 }
 
-/**
- * Event listener for HTTP server "error" event.
- */
+// Event listener for HTTP server "error" event.
+
 
 function onError(error) {
   if (error.syscall !== "listen") {
@@ -109,9 +86,7 @@ function onError(error) {
   }
 }
 
-/**
- * Event listener for HTTP server "listening" event.
- */
+// Event listener for HTTP server "listening" event.
 
 function onListening() {
   var addr = server.address();
