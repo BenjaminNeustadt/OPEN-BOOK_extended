@@ -3,7 +3,7 @@ describe('The bookshop information', () => {
     cy.visit('/openbook')
     cy.get('.bookshop-name').first().should('contain', "Gay's the Word")
     cy.get('.bookshop-name').last().should('contain', "Round Table Books")
-  })
+  });
 
   it('shows the bookshop address',() => {
     cy.visit('/openbook')
@@ -16,7 +16,7 @@ describe('The bookshop information', () => {
     cy.get('.bookshop-address').last().should('contain', 'Brixton')
     cy.get('.bookshop-address').last().should('contain', 'London')
     cy.get('.bookshop-address').last().should('contain', 'SW9 8PS')
-  })
+  });
 
   it('contains links to the bookshop websites', () => {
     cy.visit('/openbook')
@@ -26,5 +26,11 @@ describe('The bookshop information', () => {
     cy.visit('/openbook')
     cy.get('.website-link').last().click()
     cy.url().should('be.equal', 'https://www.roundtablebooks.co.uk/')
-  })
-})
+  });
+
+  it('contains tags for bookshops', () => {
+    cy.visit('/openbook')
+    cy.get('.tags').first().should('contain', '#LGBT')
+    cy.get('.tags').last().should('contain', '#Children #Black')
+  });
+});
