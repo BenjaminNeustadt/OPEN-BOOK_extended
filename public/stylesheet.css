@@ -1,3 +1,15 @@
-h1 { 
-  color: blueviolet;
+@font-face {
+  font-family: 'LemonMilk';
+  src: url('../fonts/LemonMilk.otf');
+  font-weight: normal;
+  font-style: normal;
 }
+:root {
+  --primary-color: #5c715e;
+  --secondary-color: #b6cdbd;
+  --tertiary-color: #ddeedf;
+  --background-color: #f2f9f1;
+  --heading-font: 'LemonMilk';
+  --body-font: 'Catamaran', sans-serif;
+}
+
