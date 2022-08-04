@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const BookstoreSchema = new mongoose.Schema({
-  storename: String,
+const BookshopSchema = new mongoose.Schema({
+  name: String,
   address: String,
   postcode: String,
   longitude: String,
@@ -10,6 +10,6 @@ const BookstoreSchema = new mongoose.Schema({
   storeWebsite: String
 });
 
-const Bookstore = mongoose.model("Bookstore", BookstoreSchema);
+const Bookshop = mongoose.model("Bookshop", BookshopSchema);
 
-module.exports = Bookstore;
+module.exports = Bookshop;
