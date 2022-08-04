@@ -1,10 +1,10 @@
-// Connect to MongoDB
+// CONNECT TO DATABASE
 
 const mongoose = require('mongoose')
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI || "mongodb://0.0.0.0/openbook")
+    const conn = await mongoose.connect(process.env.MONGODB_URI_TEST || process.env.MONGODB_URI)
 
     console.log(`MongoDB Connected: ${conn.connection.host}`.cyan.underline);
   } catch (error){
@@ -13,16 +13,4 @@ const connectDB = async () => {
   }
 }
 
-
-
-// var db = mongoose.connection;
-// db.on("error", console.error.bind(console, "MongoDB connection error:"));
-
 module.exports = connectDB
-
-
-
-// mongoose.connect(mongoDbUrl, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });

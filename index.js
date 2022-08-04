@@ -1,56 +1,35 @@
+// Libraries
+require('colors');
+const connectDB = require('./config/db');
+require('dotenv').config();
 const express = require("express");
-const colors = require('colors');
-const dotenv = require('dotenv').config()
+const mongoose = require("mongoose");
 const path = require("path");
-const mongoose = require('mongoose')
-const Bookshop = require("./models/bookshop")
 
-const connectDB = require('./config/db')
+// Application & port
 const app = express();
 const port = normalizePort(process.env.PORT || "3000");
 
+// Model route naming
+const Bookshop = require("./models/bookshop");
+
+// DATABASE CONNECTION & CONFIRMATION
+
 connectDB()
-
-app.listen(port, () => console.log(`Server is running on: ${port}`))
-
-app.use(express.json());
-
-//Jade path set-up
-app.set("views", path.join(__dirname, "frontend/views"));
-app.set("view engine", "jade");
-
-// bootstrap connection
-app.use(express.static(path.join(__dirname + "/public")));
-app.use("/bootstrap", express.static(path.join(__dirname + "/node_modules/bootstrap/dist/css")))
-
-
-// Route (initial)
-app.get("/openbook", (req, res) => {
-  res.render("index");
-});
-
-// Get port from environment and store in Express.
-// app.set("port", port); (unsure what this is for, currently)
-
-
-const debug = require("debug")("openbook:server");
-const http = require("http");
-const mongoose = require("mongoose");
-
-
-// Connect to MongoDB
-
-const mongoDbUrl = process.env.MONGODB_URI || "mongodb://0.0.0.0/OpenBook";
-
-mongoose.connect(mongoDbUrl, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
+// Mongoose connection
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
+// Connection confirmation
+app.listen(port, () => console.log(`Server is running on: ${port}`.magenta));
 
-// Route
+// MIDDLEWARE
+
+app.use(express.json());
+// Recognize incoming Request Object as JSON Object (inbuilt express)
+app.use(express.urlencoded({ extended: false }))
+// Recognize incoming Request Object as strings or arrays inbuilt express)
+
+// ROUTE SETUP
 
 app.get("/openbook", (req, res) => {
   Bookshop.find((err, bookshops) => {
@@ -58,28 +37,16 @@ app.get("/openbook", (req, res) => {
   })
 });
 
-app.listen(port, () => {
-  console.log("website is running");
-});
+// VIEW ENGINE SETUP
 
-const debug = require("debug")("openbook:server");
-const http = require("http");
-
-// Get port from environment and store in Express.
-
-var port = normalizePort(process.env.PORT || "3000");
-app.set("port", port);
-
-// Create HTTP server.
-var server = http.createServer(app);
-
-// Listen on provided port, on all network interfaces.
-// server.listen(port);
-// server.on("error", onError);
-// server.on("listening", onListening);
+// Jade path set-up
+app.set("views", path.join(__dirname, "frontend/views"));
+app.set("view engine", "jade");
+// bootstrap connection
+app.use(express.static(path.join(__dirname + "/public")));
+app.use("/bootstrap", express.static(path.join(__dirname + "/node_modules/bootstrap/dist/css")))
 
 // Normalize a port into a number, string, or false.
-
 function normalizePort(val) {
   var port = parseInt(val, 10);
 
@@ -97,8 +64,6 @@ function normalizePort(val) {
 }
 
 // Event listener for HTTP server "error" event.
-
-
 function onError(error) {
   if (error.syscall !== "listen") {
     throw error;
@@ -120,12 +85,3 @@ function onError(error) {
       throw error;
   }
 }
-
-// Event listener for HTTP server "listening" event.
-
-// function onListening() {
-//   var addr = server.address();
-//   var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
-//   console.log("Now listening on " + bind);
-//   debug("Listening on " + bind);
-// }

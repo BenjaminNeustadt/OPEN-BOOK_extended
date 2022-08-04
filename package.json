@@ -6,8 +6,8 @@
   "scripts": {
     "lint": "eslint .",
     "test": "npm run lint && npm run test:integration",
-    "start": "node index.js",
-    "start:test": "PORT=3030 npm start",
+    "start": "nodemon index.js",
+    "start:test": "PORT=3030 MONGODB_URI=MONGODB_URI_TEST npm start",
     "test:integration": "npx cypress run",
     "test:unit": "jest"
   },
