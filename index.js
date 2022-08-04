@@ -38,7 +38,7 @@ const http = require("http");
 const mongoose = require("mongoose");
 
 
-// // Connect to MongoDB
+// Connect to MongoDB
 
 const mongoDbUrl = process.env.MONGODB_URI || "mongodb://0.0.0.0/OpenBook";
 
