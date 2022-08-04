@@ -45,5 +45,11 @@ describe("The bookshop information", () => {
     cy.get('.tags').first().should('contain', '#LGBT')
     cy.get('.tags').last().should('contain', '#Children #Black')
   })
-  
+
+  it('has image of location', () => {
+    cy.visit('/openbook')
+    cy.get('.bookshop-container').find('img').first().should('have.attr', 'src').should('include','/images/gays_the_word_map.png')
+    cy.get('.bookshop-container').find('img').last().should('have.attr', 'src').should('include','/images/round_table_books_map.png')
+  })  
 });
+
