@@ -1,7 +1,7 @@
 require("../mongodb_helper");
 const Bookshop = require("../../models/bookshop");
 
-describe('bookstores collection', () => {
+describe('bookshops collection', () => {
   it('returns the names of the two bookshops', (done) => {
     Bookshop.find((err, bookshops) => {
       expect(err).toBeNull();
@@ -16,6 +16,15 @@ describe('bookstores collection', () => {
       expect(err).toBeNull();
       expect(bookshops[0].address).toEqual(["66 Marchmont Street", "London", "WC1N 1AB"])
       expect(bookshops[1].address).toEqual(["97 Granville Arcade", "Coldharbour Lane", "Brixton", "London", "SW9 8PS"])
+      done();
+    });
+  })
+
+  it('returns the websites of the two bookshops', (done) => {
+    Bookshop.find((err, bookshops) => {
+      expect(err).toBeNull();
+      expect(bookshops[0].website).toEqual('https://gaystheword.co.uk')
+      expect(bookshops[1].website).toEqual('https://www.roundtablebooks.co.uk')
       done();
     });
   })
