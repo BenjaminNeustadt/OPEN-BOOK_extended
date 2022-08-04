@@ -13,3 +13,9 @@
   --body-font: 'Catamaran', sans-serif;
 }
 
+h1 {
+  color: var(--primary-color);
+  font-family: var(--heading-font);
+  margin: 50px;
+  text-align: center;
+}
