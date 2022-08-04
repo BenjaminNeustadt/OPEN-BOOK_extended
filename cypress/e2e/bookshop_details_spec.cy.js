@@ -44,4 +44,5 @@ describe("The bookshop information", () => {
     cy.visit('/openbook')
     cy.get('.tags').first().should('contain', '#LGBT')
     cy.get('.tags').last().should('contain', '#Children #Black')
-  });
+  })
+});
