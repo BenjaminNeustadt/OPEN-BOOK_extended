@@ -20,16 +20,9 @@ block content
         div(class='bookshop-name') #{bookshops[1].name}
         a(class='website-link', href="https://www.roundtablebooks.co.uk/") Visit Website
         p(class='bookshop-address')
-          | 97 Granville Arcade
-          br
-          | Coldharbour Lane 
-          br
-          | Brixton 
-          br
-          | London 
-          br
-          | SW9 8PS
-          
+           each item in bookshops[1].address
+            | #{item}
+            br
         div(class='opening-hours') Opening hours
         div(class='times') Sunday - Friday: 11am - 5:30pm
           br
