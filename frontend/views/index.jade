@@ -7,11 +7,9 @@ block content
         div(class='bookshop-name') #{bookshops[0].name}
         a(class='website-link', href="http://gaystheword.co.uk") Visit Website
         p(class='bookshop-address')
-          | 66 Marchmont Street 
-          br
-          | London 
-          br
-          | WC1N 1AB
+          each item in bookshops[0].address
+            | #{item}
+            br
         div(class='opening-hours') Opening hours
         div(class='times') Monday - Saturday: 11am - 6pm
           br
