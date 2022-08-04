@@ -5,7 +5,7 @@ block content
     div(class="row")
       div(class="col-sm bookshop-container text-center", id="Gaystheword")
         div(class='bookshop-name') #{bookshops[0].name}
-        a(class='website-link', href="http://gaystheword.co.uk") Visit Website
+        a(class='website-link', href="#{bookshops[0].website}") Visit Website
         p(class='bookshop-address')
           each item in bookshops[0].address
             | #{item}
@@ -19,7 +19,7 @@ block content
       
       div(class="col-sm bookshop-container text-center", id="Roundtablebooks")
         div(class='bookshop-name') #{bookshops[1].name}
-        a(class='website-link', href="https://www.roundtablebooks.co.uk/") Visit Website
+        a(class='website-link', href="#{bookshops[1].website}") Visit Website
         p(class='bookshop-address')
            each item in bookshops[1].address
             | #{item}
