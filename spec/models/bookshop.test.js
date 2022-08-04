@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 require("../mongodb_helper");
-const Bookshop = require("../../models/bookstores");
+const Bookshop = require("../../models/bookshop");
 
 describe('bookstores collection', () => {
   it('returns the names of the two bookshops', (done) => {
