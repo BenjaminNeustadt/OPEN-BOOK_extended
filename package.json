@@ -15,6 +15,8 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.2.0",
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "jade": "^0.29.0",
     "jest": "^28.1.3",

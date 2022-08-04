@@ -1,11 +1,21 @@
 const express = require("express");
-const app = express();
+const colors = require('colors');
+const dotenv = require('dotenv').config()
 const path = require("path");
 const mongoose = require('mongoose')
 const Bookshop = require("./models/bookshop")
+
+const connectDB = require('./config/db')
+const app = express();
+const port = normalizePort(process.env.PORT || "3000");
+
+connectDB()
+
+app.listen(port, () => console.log(`Server is running on: ${port}`))
+
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, "frontend/public")));
+//Jade path set-up
 app.set("views", path.join(__dirname, "frontend/views"));
 app.set("view engine", "jade");
 
@@ -13,7 +23,22 @@ app.set("view engine", "jade");
 app.use(express.static(path.join(__dirname + "/public")));
 app.use("/bootstrap", express.static(path.join(__dirname + "/node_modules/bootstrap/dist/css")))
 
-// Connect to MongoDB
+
+// Route (initial)
+app.get("/openbook", (req, res) => {
+  res.render("index");
+});
+
+// Get port from environment and store in Express.
+// app.set("port", port); (unsure what this is for, currently)
+
+
+const debug = require("debug")("openbook:server");
+const http = require("http");
+const mongoose = require("mongoose");
+
+
+// // Connect to MongoDB
 
 const mongoDbUrl = process.env.MONGODB_URI || "mongodb://0.0.0.0/OpenBook";
 
@@ -49,9 +74,9 @@ app.set("port", port);
 var server = http.createServer(app);
 
 // Listen on provided port, on all network interfaces.
-server.listen(port);
-server.on("error", onError);
-server.on("listening", onListening);
+// server.listen(port);
+// server.on("error", onError);
+// server.on("listening", onListening);
 
 // Normalize a port into a number, string, or false.
 
@@ -98,9 +123,9 @@ function onError(error) {
 
 // Event listener for HTTP server "listening" event.
 
-function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
-  console.log("Now listening on " + bind);
-  debug("Listening on " + bind);
-}
+// function onListening() {
+//   var addr = server.address();
+//   var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
+//   console.log("Now listening on " + bind);
+//   debug("Listening on " + bind);
+// }
