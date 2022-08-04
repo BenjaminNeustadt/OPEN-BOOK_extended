@@ -117,3 +117,10 @@ Some people occasionally experience MongoDB connection errors when running the t
 
 - Check that MongoDB is installed using `mongo --version`
 - Check that it's running using `brew services list`
+
+## Add the two bookshops to your local database
+
+* Run `mongosh`
+* Run `use OpenBook`
+* Run `db.bookshops.insertOne( { name: "Gay's the Word", address: ["66 Marchmont Street", "London", "WC1N 1AB"] } )`
+* Run `db.bookshops.insertOne( { name: "Round Table Books", address: ["97 Granville Arcade", "Coldharbour Lane", "Brixton", "London", "SW9 8PS"] } )`

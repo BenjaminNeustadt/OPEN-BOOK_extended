@@ -4,14 +4,12 @@ block content
   div(class="container")
     div(class="row")
       div(class="col-sm bookshop-container text-center", id="Gaystheword")
-        div(class='bookshop-name') Gay's the Word
+        div(class='bookshop-name') #{bookshops[0].name}
         a(class='website-link', href="http://gaystheword.co.uk") Visit Website
         p(class='bookshop-address')
-          | 66 Marchmont Street 
-          br
-          | London 
-          br
-          | WC1N 1AB
+          each item in bookshops[0].address
+            | #{item}
+            br
         div(class='opening-hours') Opening hours
         div(class='times') Monday - Saturday: 11am - 6pm
           br
@@ -20,19 +18,12 @@ block content
         div(class='tags') #LGBT
       
       div(class="col-sm bookshop-container text-center", id="Roundtablebooks")
-        div(class='bookshop-name') Round Table Books
+        div(class='bookshop-name') #{bookshops[1].name}
         a(class='website-link', href="https://www.roundtablebooks.co.uk/") Visit Website
         p(class='bookshop-address')
-          | 97 Granville Arcade
-          br
-          | Coldharbour Lane 
-          br
-          | Brixton 
-          br
-          | London 
-          br
-          | SW9 8PS
-          
+           each item in bookshops[1].address
+            | #{item}
+            br
         div(class='opening-hours') Opening hours
         div(class='times') Sunday - Friday: 11am - 5:30pm
           br

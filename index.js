@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const mongoose = require('mongoose')
+const Bookshop = require("./models/bookshop")
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "frontend/public")));
@@ -11,27 +13,9 @@ app.set("view engine", "jade");
 app.use(express.static(path.join(__dirname + "/public")));
 app.use("/bootstrap", express.static(path.join(__dirname + "/node_modules/bootstrap/dist/css")))
 
-
-app.get("/openbook", (req, res) => {
-  res.render("index");
-});
-
-app.listen(port, () => {
-  console.log("website is running");
-});
-
-const debug = require("debug")("openbook:server");
-const http = require("http");
-const mongoose = require("mongoose");
-
-// Get port from environment and store in Express.
-
-var port = normalizePort(process.env.PORT || "3000");
-app.set("port", port);
-
 // Connect to MongoDB
 
-var mongoDbUrl = process.env.MONGODB_URI || "mongodb://0.0.0.0/openbook";
+const mongoDbUrl = process.env.MONGODB_URI || "mongodb://0.0.0.0/OpenBook";
 
 mongoose.connect(mongoDbUrl, {
   useNewUrlParser: true,
@@ -40,6 +24,26 @@ mongoose.connect(mongoDbUrl, {
 
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
+
+// Route
+
+app.get("/openbook", (req, res) => {
+  Bookshop.find((err, bookshops) => {
+    res.render('index', { bookshops: bookshops } )
+  })
+});
+
+app.listen(port, () => {
+  console.log("website is running");
+});
+
+const debug = require("debug")("openbook:server");
+const http = require("http");
+
+// Get port from environment and store in Express.
+
+var port = normalizePort(process.env.PORT || "3000");
+app.set("port", port);
 
 // Create HTTP server.
 var server = http.createServer(app);
