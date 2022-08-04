@@ -7,6 +7,11 @@ app.use(express.static(path.join(__dirname, "frontend/public")));
 app.set("views", path.join(__dirname, "frontend/views"));
 app.set("view engine", "jade");
 
+// bootstrap connection
+app.use(express.static(path.join(__dirname + "/public")));
+app.use("/bootstrap", express.static(path.join(__dirname + "/node_modules/bootstrap/dist/css")))
+
+
 app.get("/openbook", (req, res) => {
   res.render("index");
 });
