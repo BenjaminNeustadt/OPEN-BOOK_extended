@@ -18,6 +18,7 @@ describe("The bookshop information", () => {
     cy.get(".bookshop-address").last().should("contain", "Brixton");
     cy.get(".bookshop-address").last().should("contain", "London");
     cy.get(".bookshop-address").last().should("contain", "SW9 8PS");
+
   });
 
   it("contains links to the bookshop websites", () => {
@@ -38,4 +39,9 @@ describe("The bookshop information", () => {
     cy.get(".times").last().should("contain", "Sunday - Friday: 11am - 5:30pm");
     cy.get(".times").last().should("contain", "Saturday: 9:30am - 5:30pm");
   });
-});
+  
+  it('contains tags for bookshops', () => {
+    cy.visit('/openbook')
+    cy.get('.tags').first().should('contain', '#LGBT')
+    cy.get('.tags').last().should('contain', '#Children #Black')
+  });
