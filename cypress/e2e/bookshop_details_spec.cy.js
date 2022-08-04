@@ -23,12 +23,10 @@ describe("The bookshop information", () => {
 
   it("contains links to the bookshop websites", () => {
     cy.visit("/openbook");
-    cy.get(".website-link").first().click();
-    cy.url().should("be.equal", "https://www.gaystheword.co.uk/");
+    cy.get('.bookshop-container').find('a').first().should('have.attr', 'href').should('include','http://gaystheword.co.uk')
 
     cy.visit("/openbook");
-    cy.get(".website-link").last().click();
-    cy.url().should("be.equal", "https://www.roundtablebooks.co.uk/");
+    cy.get('.bookshop-container').find('a').last().should('have.attr', 'href').should('include','https://www.roundtablebooks.co.uk/')
   });
 
   it("shows the bookshop opening times", () => {
