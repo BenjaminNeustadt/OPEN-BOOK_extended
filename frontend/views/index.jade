@@ -11,9 +11,10 @@ block content
             | #{item}
             br
         div(class='opening-hours') Opening hours
-        div(class='times') Monday - Saturday: 11am - 6pm
-          br
-          | Sunday: 1pm - 6pm
+        div(class='times')
+          each item in bookshops[0].openingHours
+            | #{item}
+            br
         img(src="/images/gays_the_word_map.png", width='50px')
         div(class='tags') #LGBT
       
