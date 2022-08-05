@@ -1,26 +1,26 @@
 // Libraries
-require('colors');
-const connectDB = require('./config/db');
-require('dotenv').config();
+// require('colors');
+// const connectDB = require('./config/db');
+// require('dotenv').config();
 const express = require("express");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const path = require("path");
-const http = require('http');
-const debug = require("debug")("openbook:server");
+// const http = require('http');
+// const debug = require("debug")("openbook:server");
 
 // Application & port
 const app = express();
-const port = normalizePort(process.env.PORT || "3000");
+// const port = normalizePort(process.env.PORT || "3000");
 
 // Model route naming
 const Bookshop = require("./models/bookshop");
 
 // DATABASE CONNECTION & CONFIRMATION
 
-connectDB()
+// connectDB()
 // Mongoose connection
-var db = mongoose.connection;
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
+// var db = mongoose.connection;
+// db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 // MIDDLEWARE
 
@@ -57,68 +57,69 @@ app.set("view engine", "jade");
 app.use(express.static(path.join(__dirname + "/public")));
 app.use("/bootstrap", express.static(path.join(__dirname + "/node_modules/bootstrap/dist/css")))
 
+module.exports = app;
 
-// PORT SETUP and FUNCTIOANALITY
+// // PORT SETUP and FUNCTIOANALITY
 
-// Normalize a port into a number, string, or false.
-function normalizePort(val) {
-  const port = parseInt(val, 10);
+// // Normalize a port into a number, string, or false.
+// function normalizePort(val) {
+//   const port = parseInt(val, 10);
 
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
+//   if (isNaN(port)) {
+//     // named pipe
+//     return val;
+//   }
 
-  if (port >= 0) {
-    // port number
-    return port;
-  }
+//   if (port >= 0) {
+//     // port number
+//     return port;
+//   }
 
-  return false;
-}
+//   return false;
+// }
 
-/**
- * Create HTTP server.
- */
+// /**
+//  * Create HTTP server.
+//  */
 
-  const server = http.createServer(app);
+//   const server = http.createServer(app);
 
- /**
-  * Listen on provided port, on all network interfaces.
-  */
+//  /**
+//   * Listen on provided port, on all network interfaces.
+//   */
  
- server.listen(port);
- server.on('error', onError);
- server.on('listening', onListening);
+//  server.listen(port);
+//  server.on('error', onError);
+//  server.on('listening', onListening);
 
-// Event listener for HTTP server "error" event.
-function onError(error) {
-  if (error.syscall !== "listen") {
-    throw error;
-  }
+// // Event listener for HTTP server "error" event.
+// function onError(error) {
+//   if (error.syscall !== "listen") {
+//     throw error;
+//   }
 
-  const bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
+//   const bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
 
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case "EACCES":
-      console.error(bind + " requires elevated privileges");
-      process.exit(1);
-      break;
-    case "EADDRINUSE":
-      console.error(bind + " is already in use");
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
-}
+//   // handle specific listen errors with friendly messages
+//   switch (error.code) {
+//     case "EACCES":
+//       console.error(bind + " requires elevated privileges");
+//       process.exit(1);
+//       break;
+//     case "EADDRINUSE":
+//       console.error(bind + " is already in use");
+//       process.exit(1);
+//       break;
+//     default:
+//       throw error;
+//   }
+// }
 
-function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  console.log("Now listening on " + bind);
-  debug('Listening on ' + bind);
-}
+// function onListening() {
+//   var addr = server.address();
+//   var bind = typeof addr === 'string'
+//     ? 'pipe ' + addr
+//     : 'port ' + addr.port;
+//   console.log(("Now listening on " + bind).rainbow);
+//   debug('Listening on ' + bind);
+// }
