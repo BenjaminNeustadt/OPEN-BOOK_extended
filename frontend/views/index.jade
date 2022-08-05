@@ -16,7 +16,9 @@ block content
             | #{item}
             br
         img(src="/images/gays_the_word_map.png", width='280px')
-        div(class='tags') #LGBT
+        div(class='tags') 
+          each tag in bookshops[0].tags
+            | ##{tag} 
       
       div(class="col-sm bookshop-container text-center", id="Roundtablebooks")
         div(class='bookshop-name') #{bookshops[1].name}
@@ -31,5 +33,7 @@ block content
             | #{item}
             br
         img(src="/images/round_table_books_map.png", width='280px')
-        div(class='tags') #Children #Black
+        div(class='tags') 
+          each tag in bookshops[1].tags
+            | ##{tag} 
 

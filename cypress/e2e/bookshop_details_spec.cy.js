@@ -41,7 +41,10 @@ describe("The bookshop information", () => {
   it('contains tags for bookshops', () => {
     cy.visit('/openbook')
     cy.get('.tags').first().should('contain', '#LGBT')
-    cy.get('.tags').last().should('contain', '#Children #Black')
+    cy.get('.tags').first().should('contain', '#Queer-Owned')
+    cy.get('.tags').last().should('contain', "#Children's Books")
+    cy.get('.tags').last().should('contain', "#Black-owned Business")
+    cy.get('.tags').last().should('contain', "#Inclusive")
   })
 
   it('has image of location', () => {
