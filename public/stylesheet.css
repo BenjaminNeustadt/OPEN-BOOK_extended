@@ -20,6 +20,10 @@ h1 {
   text-align: center;
 }
 
+.bookshop-name {
+  font-family: var(--heading-font);
+}
+
 img {
   padding: 15px
 }
