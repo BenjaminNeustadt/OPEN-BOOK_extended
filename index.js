@@ -5,6 +5,8 @@ require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+const http = require('http');
+const debug = require("debug")("openbook:server");
 
 // Application & port
 const app = express();
@@ -19,8 +21,6 @@ connectDB()
 // Mongoose connection
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
-// Connection confirmation
-app.listen(port, () => console.log(`Server is running on: ${port}`.magenta));
 
 // MIDDLEWARE
 
@@ -48,7 +48,7 @@ app.use("/bootstrap", express.static(path.join(__dirname + "/node_modules/bootst
 
 // Normalize a port into a number, string, or false.
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  const port = parseInt(val, 10);
 
   if (isNaN(port)) {
     // named pipe
@@ -63,13 +63,27 @@ function normalizePort(val) {
   return false;
 }
 
+/**
+ * Create HTTP server.
+ */
+
+  const server = http.createServer(app);
+
+ /**
+  * Listen on provided port, on all network interfaces.
+  */
+ 
+ server.listen(port);
+ server.on('error', onError);
+ server.on('listening', onListening);
+
 // Event listener for HTTP server "error" event.
 function onError(error) {
   if (error.syscall !== "listen") {
     throw error;
   }
 
-  var bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
+  const bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -84,4 +98,13 @@ function onError(error) {
     default:
       throw error;
   }
+}
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  console.log("Now listening on " + bind);
+  debug('Listening on ' + bind);
 }
