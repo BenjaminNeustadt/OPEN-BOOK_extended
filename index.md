@@ -102,6 +102,10 @@ https://stackoverflow.com/questions/60765304/why-we-pass-app-in-http-createserve
 is the same thing as: 
 
 `app.listen(port, () => console.log(`Server is running on: ${port}`))`
+
+Replaced app.listen() with http.createServer() as it allows more functionality, allowing us to handle specific error messages to the console.
+We end up keeping the `var server = http.createServer(app);`  because it allows us to do more with it than the app.listen();
+Next: extract into a bin with bin/www
 - - - - 
 ```js
 

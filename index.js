@@ -46,6 +46,9 @@ app.set("view engine", "jade");
 app.use(express.static(path.join(__dirname + "/public")));
 app.use("/bootstrap", express.static(path.join(__dirname + "/node_modules/bootstrap/dist/css")))
 
+
+// PORT SETUP and FUNCTIOANALITY
+
 // Normalize a port into a number, string, or false.
 function normalizePort(val) {
   const port = parseInt(val, 10);
