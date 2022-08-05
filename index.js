@@ -21,8 +21,6 @@ connectDB()
 // Mongoose connection
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
-// Connection confirmation
-// app.listen(port)
 
 // MIDDLEWARE
 
@@ -69,7 +67,7 @@ function normalizePort(val) {
  * Create HTTP server.
  */
 
- const server = http.createServer(app);
+  const server = http.createServer(app);
 
  /**
   * Listen on provided port, on all network interfaces.
