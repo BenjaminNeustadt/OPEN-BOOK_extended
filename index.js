@@ -21,6 +21,8 @@ connectDB()
 // Mongoose connection
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
+// Connection confirmation
+// app.listen(port)
 
 // MIDDLEWARE
 
