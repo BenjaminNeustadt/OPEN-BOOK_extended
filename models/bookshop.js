@@ -5,9 +5,11 @@ const BookshopSchema = new mongoose.Schema({
   address: Array,
   website: String,
   openingHours: Array,
+  tags: Array,
+  postcode: String,
   longitude: String,
   latitude: String,
-  cafe: Boolean
+  cafe: Boolean,
 });
 
 const Bookshop = mongoose.model("Bookshop", BookshopSchema);
