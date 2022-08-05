@@ -37,6 +37,17 @@ app.get("/openbook", (req, res) => {
   })
 });
 
+app.get("/users/new", (req, res) => {
+  res.render('sign_up')
+})
+
+app.post("/sessions/new", (req, res) => {
+  res.redirect('/sessions/new')
+})
+
+app.get("/sessions/new", (req, res) => {
+  res.render('sign_up')
+})
 // VIEW ENGINE SETUP
 
 // Jade path set-up
