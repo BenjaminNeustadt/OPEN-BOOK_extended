@@ -36,5 +36,14 @@ describe('bookshops collection', () => {
       expect(bookshops[1].tags).toEqual(["Children's Books", 'Black-owned Business', 'Inclusive'])
       done();
     });
+  });
+  
+  it('returns the opening hours of the two bookshops', (done) => {
+    Bookshop.find((err, bookshops) => {
+      expect(err).toBeNull();
+      expect(bookshops[0].openingHours).toEqual(['Monday - Saturday: 11am - 6pm', 'Sunday: 1pm - 6pm'])
+      expect(bookshops[1].openingHours).toEqual(['Sunday - Friday: 11am - 5:30pm', 'Saturday: 9:30am - 5:30pm'])
+      done();
+    })
   })
 })

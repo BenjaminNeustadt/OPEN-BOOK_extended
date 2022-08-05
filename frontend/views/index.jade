@@ -11,23 +11,25 @@ block content
             | #{item}
             br
         div(class='opening-hours') Opening hours
-        div(class='times') Monday - Saturday: 11am - 6pm
-          br
-          | Sunday: 1pm - 6pm
-        img(src="/images/gays_the_word_map.png", width='50px')
+        div(class='times')
+          each item in bookshops[0].openingHours
+            | #{item}
+            br
+        img(src="/images/gays_the_word_map.png", width='280px')
         div(class='tags') #LGBT
       
       div(class="col-sm bookshop-container text-center", id="Roundtablebooks")
         div(class='bookshop-name') #{bookshops[1].name}
         a(class='website-link', href="#{bookshops[1].website}") Visit Website
         p(class='bookshop-address')
-           each item in bookshops[1].address
+          each item in bookshops[1].address
             | #{item}
             br
         div(class='opening-hours') Opening hours
-        div(class='times') Sunday - Friday: 11am - 5:30pm
-          br
-          | Saturday: 9:30am - 5:30pm
-        img(src="/images/round_table_books_map.png", width='50px')
+        div(class='times') 
+          each item in bookshops[1].openingHours
+            | #{item}
+            br
+        img(src="/images/round_table_books_map.png", width='280px')
         div(class='tags') #Children #Black
 

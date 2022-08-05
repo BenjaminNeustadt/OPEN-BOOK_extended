@@ -19,3 +19,11 @@ h1 {
   margin: 50px;
   text-align: center;
 }
+
+.bookshop-name {
+  font-family: var(--heading-font);
+}
+
+img {
+  padding: 15px
+}

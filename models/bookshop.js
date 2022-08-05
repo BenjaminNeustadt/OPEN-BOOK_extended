@@ -4,6 +4,7 @@ const BookshopSchema = new mongoose.Schema({
   name: String,
   address: Array,
   website: String,
+  openingHours: Array,
   tags: Array,
   postcode: String,
   longitude: String,
