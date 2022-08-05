@@ -122,5 +122,5 @@ Some people occasionally experience MongoDB connection errors when running the t
 
 * Run `mongosh`
 * Run `use OpenBook`
-* Run `db.bookshops.insertOne( { name: "Gay's the Word", address: ["66 Marchmont Street", "London", "WC1N 1AB"], website: "https://gaystheword.co.uk" } )`
-* Run `db.bookshops.insertOne( { name: "Round Table Books", address: ["97 Granville Arcade", "Coldharbour Lane", "Brixton", "London", "SW9 8PS"], website: "https://www.roundtablebooks.co.uk" } )`
+* Run `db.bookshops.insertOne( { name: "Gay's the Word", address: ["66 Marchmont Street", "London", "WC1N 1AB"], website: "https://gaystheword.co.uk", tags: ['LGBT', 'Queer-Owned'] } )`
+* Run `db.bookshops.insertOne( { name: "Round Table Books", address: ["97 Granville Arcade", "Coldharbour Lane", "Brixton", "London", "SW9 8PS"], website: "https://www.roundtablebooks.co.uk", tags: ["Children's Books", 'Black-owned Business', 'Inclusive'] } )`

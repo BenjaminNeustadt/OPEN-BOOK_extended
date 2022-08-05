@@ -28,4 +28,13 @@ describe('bookshops collection', () => {
       done();
     });
   })
+
+  it('returns the tags for the two bookshops', (done) => {
+    Bookshop.find((err, bookshops) => {
+      expect(err).toBeNull();
+      expect(bookshops[0].tags).toEqual(['LGBT', 'Queer-Owned'])
+      expect(bookshops[1].tags).toEqual(["Children's Books", 'Black-owned Business', 'Inclusive'])
+      done();
+    });
+  })
 })
