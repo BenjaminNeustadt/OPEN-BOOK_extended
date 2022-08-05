@@ -21,13 +21,14 @@ block content
         div(class='bookshop-name') #{bookshops[1].name}
         a(class='website-link', href="#{bookshops[1].website}") Visit Website
         p(class='bookshop-address')
-           each item in bookshops[1].address
+          each item in bookshops[1].address
             | #{item}
             br
         div(class='opening-hours') Opening hours
-        div(class='times') Sunday - Friday: 11am - 5:30pm
-          br
-          | Saturday: 9:30am - 5:30pm
+        div(class='times') 
+          each item in bookshops[1].openingHours
+            | #{item}
+            br
         img(src="/images/round_table_books_map.png", width='50px')
         div(class='tags') #Children #Black
 
