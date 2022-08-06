@@ -19,7 +19,7 @@ var mongoose = require("mongoose");
 const port = normalizePort(process.env.PORT || "3000");
 
 /**
- * Connect to MongoDB
+ *  DATABASE CONNECTION & CONFIRMATION
  **/
 
 connectDB()
