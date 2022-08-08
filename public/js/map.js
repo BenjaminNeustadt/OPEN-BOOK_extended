@@ -7,14 +7,17 @@ const map = new mapboxgl.Map({
 });
 
 
-// OPTIONS
+// OPTIONS/ NB
+
+// mapbox needs them to be in the order: longitude-latitude, else it will not center
+
 // style: 'mapbox://styles/mapbox/dark-v10'  - DARK
 // style: 'mapbox://styles/mapbox/light-v10' - LIGHT
 // London, longitude - latitude [-0.118092, 51.509865]
 // Paris, longitude - latitude [2.3522, 48.8566] 
 // New York, longitude - latitude [-74.005974, 40.712776]
 // Taipei, longitude - latitude [121.565414, 25.032969]
-// mapbox needs them to be in the order: longitude-latitude, else it will not center
+
 
 
 function loadMap() {

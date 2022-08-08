@@ -10,12 +10,6 @@ const path = require("path");
 const app = express();
 
 /**
- * Model route naming
- */ 
-
-// const Bookshop = require("./backend/models/bookshop");
-
-/**
  * MIDDLEWARE
  */
 
@@ -27,8 +21,8 @@ app.use(express.urlencoded({ extended: false }))
 /**
  * ROUTE SETUP
  */
-// router attribution
 
+// Route attributes attribution
 const BookShopRouter = require("./backend/routes/bookshop")
 
 app.use("/", BookShopRouter);

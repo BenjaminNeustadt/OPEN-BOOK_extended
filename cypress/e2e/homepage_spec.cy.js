@@ -15,10 +15,19 @@ describe('The homepage', () => {
         cy.get('nav').should('be.visible');
     })
     
-    it("should redirect to homepage when url is '/' ", () => {
+    xit("should redirect to homepage when url is '/' ", () => {
         cy.visit('/');
 
         cy.url().should('eq', 'http://localhost:3030/openbook')
     })
-  
+
+    it("should have url '/' equal url '/openbook'", () => {
+        cy.request({
+            url: 'http://localhost:3030/',
+            failOnStatusCode:false,
+        }).then((resp) => {
+            expect(resp.status).to.eq(200)
+        })
+    })
+
 })
