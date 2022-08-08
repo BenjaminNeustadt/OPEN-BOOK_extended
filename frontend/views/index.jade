@@ -16,37 +16,23 @@ block content
   h1 OpenBook
   div(class="container")
     div(class="row")
-      div(class="col-sm bookshop-container text-center", id="Gaystheword")
-        div(class='bookshop-name') #{bookshops[0].name}
-        a(class='website-link', href="#{bookshops[0].website}") Visit Website
-        p(class='bookshop-address')
-          each item in bookshops[0].address
-            | #{item}
-            br
-        div(class='opening-hours') Opening hours
-        div(class='times')
-          each item in bookshops[0].openingHours
-            | #{item}
-            br
-        img(src="/images/gays_the_word_map.png", width='280px')
-        div(class='tags') 
-          each tag in bookshops[0].tags
-            | ##{tag} 
+     - for (let i = 0; i < bookshops.length; i++) {
+        div(class="col-sm bookshop-container text-center", id="Gaystheword")
+          div(class='bookshop-name') #{bookshops[i].name}
+          a(class='website-link', href="#{bookshops[i].website}") Visit Website
+          p(class='bookshop-address')
+            each item in bookshops[i].address
+              | #{item}
+              br
+          div(class='opening-hours') Opening hours
+          div(class='times')
+            each item in bookshops[i].openingHours
+              | #{item}
+              br
+          img(src="/images/gays_the_word_map.png", width='280px')
+          div(class='tags') 
+            each tag in bookshops[i].tags
+              | ##{tag} 
+     - }
+    
       
-      div(class="col-sm bookshop-container text-center", id="Roundtablebooks")
-        div(class='bookshop-name') #{bookshops[1].name}
-        a(class='website-link', href="#{bookshops[1].website}") Visit Website
-        p(class='bookshop-address')
-          each item in bookshops[1].address
-            | #{item}
-            br
-        div(class='opening-hours') Opening hours
-        div(class='times') 
-          each item in bookshops[1].openingHours
-            | #{item}
-            br
-        img(src="/images/round_table_books_map.png", width='280px')
-        div(class='tags') 
-          each tag in bookshops[1].tags
-            | ##{tag} 
-
