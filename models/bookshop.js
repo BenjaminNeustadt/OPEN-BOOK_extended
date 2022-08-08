@@ -26,6 +26,7 @@ const BookshopSchema = new mongoose.Schema({
   openingHours: Array,
   tags: Array,
   cafe: Boolean,
+  coordinates: Array,
 });
 
 // Geocode & create location

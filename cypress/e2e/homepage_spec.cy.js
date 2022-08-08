@@ -13,7 +13,7 @@ describe('The homepage', () => {
     it('should have a navbar', () => {
         cy.visit('/openbook');
         cy.get('nav').should('be.visible');
-
+    })
     it("should redirect to homepage when url is '/' ", () => {
         cy.visit('/');
 
