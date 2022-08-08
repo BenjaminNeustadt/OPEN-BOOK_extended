@@ -28,6 +28,10 @@ app.use(express.urlencoded({ extended: false }))
  * ROUTE SETUP
  */
 
+app.get("/", (req, res) => {
+  res.redirect("/openbook")
+})
+
 app.get("/openbook", (req, res) => {
   Bookshop.find((err, bookshops) => {
     res.render('index', { bookshops: bookshops } )

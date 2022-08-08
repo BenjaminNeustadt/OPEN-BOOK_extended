@@ -11,6 +11,10 @@ describe('The homepage', () => {
         cy.get('.row').children().should('have.length', 2);
     })
 
+    it("should redirect to homepage when url is '/' ", () => {
+        cy.visit('/');
 
+        cy.url().should('eq', 'http://localhost:3030/openbook')
+    })
   })
   
