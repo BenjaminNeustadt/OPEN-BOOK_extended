@@ -10,6 +10,7 @@ const BookshopSchema = new mongoose.Schema({
   longitude: String,
   latitude: String,
   cafe: Boolean,
+  coordinates: Array,
 });
 
 const Bookshop = mongoose.model("Bookshop", BookshopSchema);
