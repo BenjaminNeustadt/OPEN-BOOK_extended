@@ -46,6 +46,10 @@ app.get("/sessions/new", (req, res) => {
   res.render('sign_up')
 })
 
+app.get("/search", (req, res) => {
+  res.render('search')
+})
+
 /**
  * VIEW ENGINE SETUP
  */
