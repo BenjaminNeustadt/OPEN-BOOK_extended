@@ -31,11 +31,8 @@ app.use(express.urlencoded({ extended: false }))
 
 const BookShopRouter = require("./backend/routes/bookshop")
 
-app.get("/", (req, res) => {
-  res.redirect("/openbook")
-})
-
-app.use("/openbook", BookShopRouter)
+app.use("/", BookShopRouter);
+app.use("/openbook", BookShopRouter);
 
 app.get("/users/new", (req, res) => {
   res.render('sign_up')
