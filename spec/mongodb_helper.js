@@ -1,12 +1,9 @@
 const mongoose = require("mongoose");
+require('dotenv').config();
 
 beforeAll(function (done) {
-  mongoose.connect("mongodb://0.0.0.0/OpenBook", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
-
-  var db = mongoose.connection;
+  mongoose.connect(process.env.MONGODB_URI)
+  const db = mongoose.connection
   db.on("error", console.error.bind(console, "MongoDB connection error:"));
   db.on("open", function () {
     done();
