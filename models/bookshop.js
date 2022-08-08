@@ -27,6 +27,20 @@ const BookshopSchema = new mongoose.Schema({
   cafe: Boolean,
 });
 
-const Bookshop = mongoose.model("Bookshop", BookshopSchema);
+// Geocode & create location
+BookshopSchema.pre('save', async function(next) {
+  const loc = await geocoder.geocode(this.address);
+  this.location = {
+    type: 'Point',
+    coordinates: [loc[0].longitude, loc[0].latitude],
+    formattedAddress: loc[0].formattedAddress
+  }
 
+  // Do not save address
+  this.address = undefined;
+  next();
+});
+
+// Export the Schema module
+const Bookshop = mongoose.model("Bookshop", BookshopSchema);
 module.exports = Bookshop;
