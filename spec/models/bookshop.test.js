@@ -46,4 +46,4 @@ describe('bookshops collection', () => {
       done();
     })
   })
-})
+});

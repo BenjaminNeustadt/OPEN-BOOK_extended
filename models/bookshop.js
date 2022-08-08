@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const geocoder = require('../utils/geocoder')
 
 const BookshopSchema = new mongoose.Schema({
   name: String,
@@ -29,7 +30,7 @@ const BookshopSchema = new mongoose.Schema({
 
 // Geocode & create location
 BookshopSchema.pre('save', async function(next) {
-  const loc = await geocoder.geocode(this.address);
+  const loc = await geocoder.geocode(this.address.join());
   this.location = {
     type: 'Point',
     coordinates: [loc[0].longitude, loc[0].latitude],
