@@ -7,7 +7,7 @@ describe('The homepage', () => {
     it('should use bootstrap grid', () => {
         cy.visit('/openbook');
         cy.get('.container').children().should('have.class', 'row')
-        cy.get('.row').children().should('have.length', 2);
+        cy.get('.row').children().should('have.length', 9);
     })
 
     it('should have a navbar', () => {
