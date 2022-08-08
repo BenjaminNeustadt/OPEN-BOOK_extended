@@ -16,14 +16,6 @@ const map = new mapboxgl.Map({
 // Taipei, longitude - latitude [121.565414, 25.032969]
 // mapbox needs them to be in the order: longitude-latitude, else it will not center
 
-// Create two pins on the map that show the location of bookstores:
-// STEPS = 
-// ideas: 
-// 1.Schema //
-// 2.middleware: geocoder that uses mapquest //
-// 3.remove shop images
-// 4.create fetch function in map.js for icons of shops on map
-
 
 function loadMap() {
     map.on('load', function() {
@@ -39,10 +31,21 @@ function loadMap() {
                 type: 'Feature',
                 geometry: {
                   type: 'Point',
-                  coordinates: [-0.140634, 51.501476]
+                  coordinates: [-0.125200, 51.525430]
                 },
                 properties: {
-                  storeId: 'Palace',
+                  storeId: 'Gays the Word',
+                  icon: 'shop'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-0.111410, 51.462000]
+                },
+                properties: {
+                  storeId: 'Round Table Books',
                   icon: 'shop'
                 }
               }
@@ -63,3 +66,4 @@ function loadMap() {
 }
 
 loadMap();
+
