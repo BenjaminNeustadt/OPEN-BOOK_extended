@@ -19,9 +19,47 @@ const map = new mapboxgl.Map({
 // Create two pins on the map that show the location of bookstores:
 // STEPS = 
 // ideas: 
-// 1.Schema
-// 2.middleware: geocoder that uses mapquest
+// 1.Schema //
+// 2.middleware: geocoder that uses mapquest //
 // 3.remove shop images
 // 4.create fetch function in map.js for icons of shops on map
 
 
+function loadMap() {
+    map.on('load', function() {
+      map.addLayer({
+        id: 'points',
+        type: 'symbol',
+        source: {
+          type: 'geojson',
+          data: {
+            type: 'FeatureCollection',
+            features: [
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-0.140634, 51.501476]
+                },
+                properties: {
+                  storeId: 'Palace',
+                  icon: 'shop'
+                }
+              }
+            ]
+        }
+      },
+      layout: {
+        'icon-image': '{icon}-15',
+        'icon-size': 1.5,
+        'text-field': '{storeId}',
+        'text-size': 8,
+        'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+        'text-offset': [0, 1.2],
+        'text-anchor': 'top'
+      }
+    });
+  });
+}
+
+loadMap();
