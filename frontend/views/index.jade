@@ -28,9 +28,7 @@ block content
         each item in bookshops[i].openingHours
           | #{item}
           br
-      div(class='tags') 
-        each tag in bookshops[i].tags
-          | ##{tag} 
+      
   - for (let i = 0; i < bookshops.length; i++) {
     - if (((i == 0) || ((i +1) % 5 == 0)) && (i + 4 < bookshops.length)) {
         div(class="row")
