@@ -5,7 +5,7 @@ describe('bookshops collection', () => {
   it('returns the names of the two bookshops', (done) => {
     Bookshop.find((err, bookshops) => {
       expect(err).toBeNull();
-      expect(bookshops[0].name).toEqual("Gay's the Word")
+      expect(bookshops[0].name).toEqual("Lutyens & Rubinstein Bookshop")
       expect(bookshops[1].name).toEqual("Round Table Books")
       done();
     });
@@ -14,7 +14,7 @@ describe('bookshops collection', () => {
   it('returns the addresses of the two bookshops', (done) => {
     Bookshop.find((err, bookshops) => {
       expect(err).toBeNull();
-      expect(bookshops[0].address).toEqual(["66 Marchmont Street", "London", "WC1N 1AB"])
+      expect(bookshops[0].address).toEqual(["21 Kensington Park Road,", "London,", "W11 2EU"])
       expect(bookshops[1].address).toEqual(["97 Granville Arcade", "Coldharbour Lane", "Brixton", "London", "SW9 8PS"])
       done();
     });
@@ -23,7 +23,7 @@ describe('bookshops collection', () => {
   it('returns the websites of the two bookshops', (done) => {
     Bookshop.find((err, bookshops) => {
       expect(err).toBeNull();
-      expect(bookshops[0].website).toEqual('https://gaystheword.co.uk')
+      expect(bookshops[0].website).toEqual('https://www.lutyensrubinstein.co.uk')
       expect(bookshops[1].website).toEqual('https://www.roundtablebooks.co.uk')
       done();
     });
@@ -32,7 +32,7 @@ describe('bookshops collection', () => {
   it('returns the tags for the two bookshops', (done) => {
     Bookshop.find((err, bookshops) => {
       expect(err).toBeNull();
-      expect(bookshops[0].tags).toEqual(['LGBT', 'Queer-Owned'])
+      expect(bookshops[0].tags).toEqual(["poetry", "children", "art"])
       expect(bookshops[1].tags).toEqual(["Children's Books", 'Black-owned Business', 'Inclusive'])
       done();
     });
@@ -41,7 +41,7 @@ describe('bookshops collection', () => {
   it('returns the opening hours of the two bookshops', (done) => {
     Bookshop.find((err, bookshops) => {
       expect(err).toBeNull();
-      expect(bookshops[0].openingHours).toEqual(['Monday - Saturday: 11am - 6pm', 'Sunday: 1pm - 6pm'])
+      expect(bookshops[0].openingHours).toEqual(["Monday-Saturday: 10am-6pm", "Sunday: 11am-5pm"])
       expect(bookshops[1].openingHours).toEqual(['Sunday - Friday: 11am - 5:30pm', 'Saturday: 9:30am - 5:30pm'])
       done();
     })
