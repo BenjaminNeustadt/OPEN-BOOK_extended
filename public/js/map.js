@@ -18,9 +18,31 @@ const map = new mapboxgl.Map({
 // New York, longitude - latitude [-74.005974, 40.712776]
 // Taipei, longitude - latitude [121.565414, 25.032969]
 
+// Fetch stores from API
+async function getShops() {
+  const res = await fetch('/api/map');
+  const something = await res.json()
+  console.log(something)
+  const shops = something.data.map(shop => {
+    return {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [shop.coordinates[0].$numberDecimal, shop.coordinates[1].$numberDecimal]
+          },
+          properties: {
+            storeId: shop.name,
+            icon: 'shop'
+          }
+        }
+  });
 
+  loadMap(shops);
+  console.log(shops)
+}
 
-function loadMap() {
+// Load map with stores
+function loadMap(shops) {
     map.on('load', function() {
       map.addLayer({
         id: 'points',
@@ -29,30 +51,7 @@ function loadMap() {
           type: 'geojson',
           data: {
             type: 'FeatureCollection',
-            features: [
-              {
-                type: 'Feature',
-                geometry: {
-                  type: 'Point',
-                  coordinates: [-0.125200, 51.525430]
-                },
-                properties: {
-                  storeId: 'Gays the Word',
-                  icon: 'shop'
-                }
-              },
-              {
-                type: 'Feature',
-                geometry: {
-                  type: 'Point',
-                  coordinates: [-0.111410, 51.462000]
-                },
-                properties: {
-                  storeId: 'Round Table Books',
-                  icon: 'shop'
-                }
-              }
-            ]
+            features: shops,
         }
       },
       layout: {
@@ -68,5 +67,5 @@ function loadMap() {
   });
 }
 
-loadMap();
+getShops();
 
