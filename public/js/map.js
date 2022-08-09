@@ -6,9 +6,6 @@ const map = new mapboxgl.Map({
   center: [-0.118092, 51.509865]
 });
 
-map.on('click', e => {
-  console.log('click', e.lngLat);
-});
 
 // OPTIONS/ NB
 
@@ -35,6 +32,7 @@ async function getShops() {
           },
           properties: {
             storeId: shop.name,
+            text: 'hello?',
             icon: 'shop'
           }
         }
@@ -67,8 +65,16 @@ function loadMap(shops) {
         'text-anchor': 'top'
       }
     });
+      const popup = new mapboxgl.Popup();
+      popup.setLngLat([-0.1734961, 51.49432 ])
+        .setHTML('<h1>MapBox</h1>test')
+        .addTo(map)
   });
 }
+
+map.on('click', e => {
+  console.log('click', e.lngLat);
+});
 
 getShops();
 
