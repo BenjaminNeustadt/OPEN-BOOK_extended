@@ -1,3 +1,4 @@
+include mixins
 extends ./layout
 block content 
   nav.navbar.navbar-expand-lg.bg-light
@@ -16,22 +17,6 @@ block content
   h1 OpenBook
   a(class="search-link", href="/openbook/search") Search
   div(class="container")
-  mixin column(i)
-    div(class="col-sm bookshop-container text-center", id="#{bookshopIds[i]}")
-      div(class='bookshop-name') #{bookshops[i].name}
-      a(class='website-link', href="#{bookshops[i].website}") Visit Website
-      p(class='bookshop-address')
-        each item in bookshops[i].address
-          | #{item}
-          br
-      div(class='opening-hours') Opening hours
-      div(class='times')
-        each item in bookshops[i].openingHours
-          | #{item}
-          br
-      div(class='tags') 
-        each tag in bookshops[i].tags
-          | ##{tag} 
   - for (let i = 0; i < bookshops.length; i++) {
     - if (((i == 0) || ((i +1) % 5 == 0)) && (i + 4 < bookshops.length)) {
         div(class="row")
