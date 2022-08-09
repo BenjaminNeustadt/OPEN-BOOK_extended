@@ -1,4 +1,4 @@
-name: Node.js CI
+name: LINTER TEST
 
 on:
   pull_request:
