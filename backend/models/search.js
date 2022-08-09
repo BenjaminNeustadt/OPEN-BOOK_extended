@@ -6,11 +6,16 @@ class Search {
   changeToIDS(bookshops) {
     let bookshopIds = []
     bookshops.forEach((bookshop) => {
-      let shop = bookshop.name.replace(/'/g, "").split(" ")
-      shop = shop.join("").toLowerCase()
+      let shop = this.formatName(bookshop.name);
       bookshopIds.push(shop)
     })
     return bookshopIds;
+  }
+
+  formatName(name) {
+    let id = name.replace(/'/g, "").split(" ")
+    id = id.join("").toLowerCase()
+    return id;
   }
 
 }
