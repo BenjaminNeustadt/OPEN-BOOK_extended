@@ -51,12 +51,10 @@ app.get("/search", (req, res) => {
 })
 
 app.get("/search/results", (req, res) => {
-  console.log(req.query.search)
   Bookshop.find({ name: req.query.search }, (err, nameResults) => {
     if (err) {
       throw err
     }
-    console.log(nameResults)
     res.render('search_results', {bookshops: nameResults})
   })
  
