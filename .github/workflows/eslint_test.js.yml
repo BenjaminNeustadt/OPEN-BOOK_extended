@@ -1,4 +1,4 @@
-name: Unit tests CI
+name: Linter CI
 
 on:
   pull_request:
@@ -6,11 +6,13 @@ on:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         node-version: [16.x]
-        mongodb-version: ['5.0']
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v3
@@ -18,13 +20,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Start MongoDB
-      uses: supercharge/mongodb-github-action@1.7.0
-      with:
-          mongodb-version: ${{ matrix.mongodb-version }}
-
+        cache: 'npm'
     - run: npm ci
-    - run: npm run test:unit
-    env:
-      CI: true
-
+    - run: npm run lint
