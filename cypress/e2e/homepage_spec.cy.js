@@ -21,7 +21,7 @@ describe('The homepage', () => {
         cy.url().should('eq', 'http://localhost:3030/openbook')
     })
 
-    it("should have url '/' equal url '/openbook'", () => {
+    it("should have url '/' equal url '/openbook' by checking status 200", () => {
         cy.request({
             url: 'http://localhost:3030/',
             failOnStatusCode:false,
