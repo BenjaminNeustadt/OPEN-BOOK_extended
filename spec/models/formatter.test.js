@@ -5,4 +5,9 @@ describe(Formatter,() => {
     const formatter = new Formatter();
     expect(formatter.formatName('Perry Handwell')).toEqual('perryhandwell')
   })
+
+  it('removes spaces, capital and punctuation from a string',() => {
+    const formatter = new Formatter();
+    expect(formatter.formatName("It's ME")).toEqual('itsme')
+  })
 })
