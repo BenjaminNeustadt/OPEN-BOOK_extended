@@ -26,8 +26,11 @@ app.use(express.urlencoded({ extended: false }))
 // Route attributes attribution
 const BookShopRouter = require("./backend/routes/bookshop")
 
-app.use("/", BookShopRouter);
 app.use("/openbook", BookShopRouter);
+
+app.get("/", (req, res) => {
+  res.redirect('/openbook')
+})
 
 app.get("/users/new", (req, res) => {
   res.render('sign_up')
