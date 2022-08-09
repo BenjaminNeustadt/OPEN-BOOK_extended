@@ -6,6 +6,9 @@ const map = new mapboxgl.Map({
   center: [-0.118092, 51.509865]
 });
 
+map.on('click', e => {
+  console.log('click', e.lngLat);
+});
 
 // OPTIONS/ NB
 
