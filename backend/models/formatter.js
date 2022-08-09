@@ -1,4 +1,4 @@
-class Search {
+class Formatter {
 
   changeToIDS(bookshops) {
     let bookshopIds = []
@@ -17,4 +17,4 @@ class Search {
 
 }
 
-module.exports = Search;
+module.exports = Formatter;

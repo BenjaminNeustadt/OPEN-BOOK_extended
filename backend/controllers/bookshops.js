@@ -1,7 +1,7 @@
 const Bookshop = require("../models/bookshop");
-const Search = require("../models/search")
+const Formatter = require("../models/formatter")
 
-const search = new Search();
+const formatter = new Formatter();
 
 // @description: Get bookshops
 // @route: GET /index
@@ -9,7 +9,7 @@ const search = new Search();
 const BookShopsController = {
   Display: (req, res) => {
     Bookshop.find((err, bookshops) => {
-      const bookshopIds = search.changeToIDS(bookshops);
+      const bookshopIds = formatter.changeToIDS(bookshops);
       res.render('index', { bookshops: bookshops, bookshopIds: bookshopIds })
     });
   },
@@ -20,8 +20,8 @@ const BookShopsController = {
 
   SearchResults: (req, res) => {
     Bookshop.find((err, bookshops) => {
-      const searchResult = search.formatName(req.query.search);
-      const bookshopIds = search.changeToIDS(bookshops);
+      const searchResult = formatter.formatName(req.query.search);
+      const bookshopIds = formatter.changeToIDS(bookshops);
       res.render('search_results', {bookshops: bookshops, bookshopIds: bookshopIds, searchResult: searchResult})
     })
   }
