@@ -1,4 +1,4 @@
-name: unit_tests.js CI
+name: Unit tests CI
 
 on:
   pull_request:
