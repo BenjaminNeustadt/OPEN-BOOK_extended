@@ -1,0 +1,6 @@
+extends ./layout
+block content 
+  h1(class="title") Search
+  form(action="/search/results", method="get")
+    input(id="search", type="text", name="search", value="") 
+    input(id="submit-search", type="submit", value="Search")
