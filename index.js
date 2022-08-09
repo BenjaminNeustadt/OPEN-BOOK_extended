@@ -33,8 +33,14 @@ app.get("/", (req, res) => {
 })
 
 app.get("/openbook", (req, res) => {
+  const bookshopIds = []
   Bookshop.find((err, bookshops) => {
-    res.render('index', { bookshops: bookshops } )
+    bookshops.forEach((bookshop) => {
+      let shop = bookshop.name.replace(/'/g, "").split(" ")
+      shop = shop.join("").toLowerCase()
+      bookshopIds.push(shop)
+    })
+    res.render('index', { bookshops: bookshops, bookshopIds: bookshopIds })
   })
 });
 
