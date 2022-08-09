@@ -1,5 +1,5 @@
 require("../mongodb_helper");
-const Bookshop = require("../../models/bookshop");
+const Bookshop = require("../../backend/models/bookshop");
 
 describe('bookshops collection', () => {
   it('returns the names of the two bookshops', (done) => {
@@ -46,4 +46,4 @@ describe('bookshops collection', () => {
       done();
     })
   })
-})
+});

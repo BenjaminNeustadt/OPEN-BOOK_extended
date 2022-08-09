@@ -6,13 +6,9 @@ const BookshopSchema = new mongoose.Schema({
   website: String,
   openingHours: Array,
   tags: Array,
-  postcode: String,
-  longitude: String,
-  latitude: String,
-  cafe: Boolean,
   coordinates: Array,
 });
 
+// Export the Schema module
 const Bookshop = mongoose.model("Bookshop", BookshopSchema);
-
 module.exports = Bookshop;
