@@ -8,7 +8,6 @@ describe("The search function", () => {
   it("returns a bookshop based on searching name", () => {
     cy.visit('/openbook');
     cy.get('.search-link').click();
-    cy.get('.search-by-name').should("contain", "Search by Name")
     cy.get('#search').type("Gay's the Word");
     cy.get('#submit-search').click();
 
@@ -47,5 +46,41 @@ describe("The search function", () => {
     cy.get('#submit-search').click();
 
     cy.get(".bookshop-name").first().should("contain", "Artwords Bookshop");
+  })
+
+  it("searches by tags",() => {
+    cy.visit('/openbook');
+    cy.get('.search-link').click();
+    cy.get('#search').type("children");
+    cy.get('#submit-search').click();
+
+    cy.get(".bookshop-name").first().should("contain", "Lutyens & Rubinstein Bookshop")
+    cy.get(".bookshop-name").last().should("contain", "Chener Books")
+  })
+
+  it("searches by tags for LGBTQ",() => {
+    cy.visit('/openbook');
+    cy.get('.search-link').click();
+    cy.get('#search').type("LGBTQ");
+    cy.get('#submit-search').click();
+
+    cy.get(".bookshop-name").first().should('exist');
+
+    cy.visit('/openbook');
+    cy.get('.search-link').click();
+    cy.get('#search').type("lgbtq");
+    cy.get('#submit-search').click();
+
+    cy.get(".bookshop-name").first().should('exist');
+  })
+
+  it("searches by tags regardless of capitalisation",() => {
+    cy.visit('/openbook');
+    cy.get('.search-link').click();
+    cy.get('#search').type("CHILDREN");
+    cy.get('#submit-search').click();
+
+    cy.get(".bookshop-name").first().should("contain", "Lutyens & Rubinstein Bookshop")
+    cy.get(".bookshop-name").last().should("contain", "Chener Books")
   })
 })

@@ -4,7 +4,7 @@ block content
   div(class="container")
     div(class="row")
      - for (let i = 0; i < bookshops.length; i++) {
-      if searchResult == bookshopIds[i]
+      if searchResult == bookshopIds[i] || bookshops[i].tags.includes(searchResult)
         div(class="col-sm bookshop-container text-center", id="#{bookshopIds[i]}")
           div(class='bookshop-name') #{bookshops[i].name}
           a(class='website-link', href="#{bookshops[i].website}") Visit Website
