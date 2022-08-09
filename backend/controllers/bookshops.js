@@ -14,6 +14,10 @@ const BookShopsController = {
       })
       res.render('index', { bookshops: bookshops, bookshopIds: bookshopIds })
     });
+  },
+  
+  Search: (req, res) => {
+    res.render('search')
   }
 }
 
