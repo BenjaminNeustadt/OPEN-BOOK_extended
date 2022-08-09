@@ -12,8 +12,8 @@ describe("The bookshop information", () => {
     cy.get("#gaystheword").find(".bookshop-address").should("contain", "WC1N 1AB");
 
     cy.get("#roundtablebooks").find(".bookshop-address").should("contain", "97 Granville Arcade");
-    cy.get("#roundtablebooks").find(".bookshop-address").should("contain", "Coldharbour Lane");
-    cy.get("#roundtablebooks").find(".bookshop-address").should("contain", "Brixton");
+    cy.get("#roundtablebooks").find(".bookshop-address").should("contain", "Brixton Station Rd");
+    cy.get("#roundtablebooks").find(".bookshop-address").should("contain", "Coldharbour");
     cy.get("#roundtablebooks").find(".bookshop-address").should("contain", "London");
     cy.get("#roundtablebooks").find(".bookshop-address").should("contain", "SW9 8PS");
 
@@ -38,11 +38,11 @@ describe("The bookshop information", () => {
   
   it('contains tags for bookshops', () => {
     cy.visit('/openbook')
-    cy.get("#gaystheword").find(".tags").should('contain', '#LGBT')
-    cy.get("#gaystheword").find(".tags").should('contain', '#Queer-Owned')
-    cy.get("#roundtablebooks").find(".tags").should('contain', "#Children's Books")
-    cy.get("#roundtablebooks").find(".tags").should('contain', "#Black-owned Business")
-    cy.get("#roundtablebooks").find(".tags").should('contain', "#Inclusive")
+    cy.get("#gaystheword").find(".tags").should('contain', '#LGBTQ')
+    cy.get("#gaystheword").find(".tags").should('contain', '#queer-owned')
+    cy.get("#roundtablebooks").find(".tags").should('contain', "#children")
+    cy.get("#roundtablebooks").find(".tags").should('contain', "#black-owned")
+    cy.get("#roundtablebooks").find(".tags").should('contain', "#inclusive")
   })
 
 });
