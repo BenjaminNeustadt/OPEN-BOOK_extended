@@ -11,6 +11,11 @@ describe('The homepage', () => {
         cy.get('nav').should('be.visible');
     })
 
+    
+    it("should redirect to homepage when url is '/' ", () => {
+        cy.visit('/');
+        cy.url().should('eq', 'http://localhost:3030/openbook')
+    })
 
 
     it("should have url '/' equal url '/openbook' by checking status 200", () => {

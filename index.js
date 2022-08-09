@@ -2,7 +2,6 @@
 
 const express = require("express");
 const path = require("path");
-const Bookshop = require("./backend/models/bookshop")
 
 /**
  * Application & port
@@ -26,8 +25,11 @@ app.use(express.urlencoded({ extended: false }))
 // Route attributes attribution
 const BookShopRouter = require("./backend/routes/bookshop")
 
-app.use("/", BookShopRouter);
 app.use("/openbook", BookShopRouter);
+
+app.get("/", (req, res) => {
+  res.redirect('/openbook')
+})
 
 app.get("/users/new", (req, res) => {
   res.render('sign_up')
@@ -40,22 +42,6 @@ app.post("/sessions/new", (req, res) => {
 app.get("/sessions/new", (req, res) => {
   res.render('sign_up')
 })
-
-app.get("/search", (req, res) => {
-  res.render('search')
-})
-
-app.get("/search/results", (req, res) => {
-  Bookshop.find({ name: req.query.search }, (err, nameResults) => {
-    if (err) {
-      throw err
-    }
-    res.render('search_results', {bookshops: nameResults})
-  })
- 
-})
-
-
 
 /**
  * VIEW ENGINE SETUP
