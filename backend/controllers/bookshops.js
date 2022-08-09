@@ -19,11 +19,13 @@ const BookShopsController = {
   },
 
   SearchResults: (req, res) => {
-    Bookshop.find((err, bookshops) => {
-      const searchResult = formatter.formatName(req.query.search);
-      const bookshopIds = formatter.changeToIDS(bookshops);
-      res.render('search_results', {bookshops: bookshops, bookshopIds: bookshopIds, searchResult: searchResult})
-    })
+    if (req.query.search) {
+      Bookshop.find((err, bookshops) => {
+        const searchResult = formatter.formatName(req.query.search);
+        const bookshopIds = formatter.changeToIDS(bookshops);
+        res.render('search_results', {bookshops: bookshops, bookshopIds: bookshopIds, searchResult: searchResult})
+      })
+    } 
   }
 }
 
