@@ -2,7 +2,6 @@
 
 const express = require("express");
 const path = require("path");
-const Bookshop = require("./backend/models/bookshop")
 
 /**
  * Application & port
