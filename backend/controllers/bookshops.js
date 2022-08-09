@@ -3,7 +3,8 @@ const Bookshop = require("../models/bookshop");
 // @description: Get bookshops
 // @route: GET /index
 
-const BookShopsController = (async (req, res) => {
+const BookShopsController = {
+  Display: (req, res) => {
     const bookshopIds = []
     Bookshop.find((err, bookshops) => {
       bookshops.forEach((bookshop) => {
@@ -12,7 +13,8 @@ const BookShopsController = (async (req, res) => {
         bookshopIds.push(shop)
       })
       res.render('index', { bookshops: bookshops, bookshopIds: bookshopIds })
-  })
-})
+    });
+  }
+}
 
 module.exports = BookShopsController;
