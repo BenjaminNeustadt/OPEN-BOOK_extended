@@ -1,4 +1,4 @@
-name: LINTER TEST
+name: lint.js
 
 on:
   pull_request:
