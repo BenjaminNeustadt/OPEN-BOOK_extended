@@ -57,4 +57,23 @@ describe("The search function", () => {
     cy.get(".bookshop-name").first().should("contain", "Lutyens & Rubinstein Bookshop")
     cy.get(".bookshop-name").last().should("contain", "Chener Books")
   })
+
+  it("searches by tags for LGBTQ",() => {
+    cy.visit('/openbook');
+    cy.get('.search-link').click();
+    cy.get('#search').type("LGBTQ");
+    cy.get('#submit-search').click();
+
+    cy.get(".bookshop-name").first().should('exist');
+  })
+
+  it("searches by tags regardless of capitalisation",() => {
+    cy.visit('/openbook');
+    cy.get('.search-link').click();
+    cy.get('#search').type("CHILDREN");
+    cy.get('#submit-search').click();
+
+    cy.get(".bookshop-name").first().should("contain", "Lutyens & Rubinstein Bookshop")
+    cy.get(".bookshop-name").last().should("contain", "Chener Books")
+  })
 })
