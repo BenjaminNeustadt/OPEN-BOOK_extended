@@ -1,7 +1,4 @@
 class Search {
-  constructor() {
-
-  }
 
   changeToIDS(bookshops) {
     let bookshopIds = []
