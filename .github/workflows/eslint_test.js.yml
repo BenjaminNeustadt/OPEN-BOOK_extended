@@ -1,4 +1,4 @@
-name: linter CI
+name: Linter CI
 
 on:
   pull_request:
