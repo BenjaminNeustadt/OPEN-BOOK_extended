@@ -1,4 +1,4 @@
-name: lint.js
+name: linter CI
 
 on:
   pull_request:
