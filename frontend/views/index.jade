@@ -10,11 +10,10 @@ block content
           li.nav-item
             a.nav-link.active(aria-current='page', href='#') Home
           li.nav-item
-            a.nav-link(href='#') Sign In
+            a.nav-link.search-link(href="/openbook/search") Search
           li.nav-item
             a.nav-link(href='#') Donations
-  h1 OpenBook
-  a(class="search-link", href="/openbook/search") Search
+  h1.title OpenBook
   div(class="container")
   mixin column(i)
     div(class="col-sm bookshop-container text-center", id="#{bookshopIds[i]}")
