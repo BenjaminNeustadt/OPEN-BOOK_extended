@@ -12,7 +12,7 @@ describe('The homepage', () => {
     })
 
     
-    it("should redirect to homepage when url is '/' ", () => {
+    xit("should redirect to homepage when url is '/' ", () => {
         cy.visit('/');
         cy.url().should('eq', 'http://localhost:3030/openbook')
     })

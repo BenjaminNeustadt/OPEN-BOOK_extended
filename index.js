@@ -2,12 +2,25 @@
 
 const express = require("express");
 const path = require("path");
+const dotenv = require('dotenv');
+const cors = require('cors');
+const connectDB = require('./config/db');
+
+
+// load env vars
+dotenv.config({ path: '.env' });
 
 /**
  * Application & port
  */
 
 const app = express();
+
+// Connect to DB
+connectDB()
+
+// Enable cors
+app.use(cors());
 
 /**
  * MIDDLEWARE
@@ -25,11 +38,15 @@ app.use(express.urlencoded({ extended: false }))
 // Route attributes attribution
 const BookShopRouter = require("./backend/routes/bookshop")
 
+app.use("/api/map", require("./backend/routes/mapshop"))
+
+app.use("/", BookShopRouter);
 app.use("/openbook", BookShopRouter);
 
 app.get("/", (req, res) => {
   res.redirect('/openbook')
 })
+
 
 app.get("/users/new", (req, res) => {
   res.render('sign_up')
