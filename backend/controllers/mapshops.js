@@ -2,7 +2,7 @@ const Bookshop = require("../models/bookshop");
 // @description: get all stores
 // @route GET /api/v1/stores
 // @access Public
-exports.getShops = async (req, res, next) => {
+exports.getShops = async (req, res) => {
   try {
     const shops = await Bookshop.find();
 

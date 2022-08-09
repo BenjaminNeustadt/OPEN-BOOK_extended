@@ -4,11 +4,7 @@ describe('The homepage', () => {
         cy.get('h1').should('contain', 'OpenBook')
     })
 
-    it('should use bootstrap grid', () => {
-        cy.visit('/openbook');
-        cy.get('.container').children().should('have.class', 'row')
-        
-    })
+   
 
     it('should have a navbar', () => {
         cy.visit('/openbook');
