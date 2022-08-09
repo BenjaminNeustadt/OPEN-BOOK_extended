@@ -18,6 +18,15 @@ const BookShopsController = {
   
   Search: (req, res) => {
     res.render('search')
+  },
+
+  SearchResults: (req, res) => {
+    Bookshop.find({ name: req.query.search }, (err, nameResults) => {
+      if (err) {
+        throw err
+      }
+      res.render('search_results', {bookshops: nameResults})
+    })
   }
 }
 
