@@ -22,7 +22,7 @@ const port = normalizePort(process.env.PORT || "3000");
  *  DATABASE CONNECTION & CONFIRMATION
  **/
 
-connectDB()
+// connectDB()
 
 // Mongoose connection
 var db = mongoose.connection;
