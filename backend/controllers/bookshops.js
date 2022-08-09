@@ -23,8 +23,8 @@ const BookShopsController = {
       Bookshop.find((err, bookshops) => {
         let searchResult = formatter.formatName(req.query.search);
         const bookshopIds = formatter.changeToIDS(bookshops);
-        if (req.query.search == 'LGBTQ') {
-          searchResult = req.query.search
+        if (searchResult == 'lgbtq') {
+          searchResult = 'LGBTQ';
         }
         res.render('search_results', {bookshops: bookshops, bookshopIds: bookshopIds, searchResult: searchResult})
       })

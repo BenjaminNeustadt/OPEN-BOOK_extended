@@ -65,6 +65,13 @@ describe("The search function", () => {
     cy.get('#submit-search').click();
 
     cy.get(".bookshop-name").first().should('exist');
+
+    cy.visit('/openbook');
+    cy.get('.search-link').click();
+    cy.get('#search').type("lgbtq");
+    cy.get('#submit-search').click();
+
+    cy.get(".bookshop-name").first().should('exist');
   })
 
   it("searches by tags regardless of capitalisation",() => {
