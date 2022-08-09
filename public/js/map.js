@@ -65,15 +65,18 @@ function loadMap(shops) {
         'text-anchor': 'top'
       }
     });
-      const popup = new mapboxgl.Popup({container: 'map'});
-      popup.setLngLat([-0.1734961, 51.49432 ])
-        .setHTML('<h1>MapBox</h1>test')
-        .addTo(map)
   });
 }
 
 map.on('click', e => {
-  console.log('click', e.lngLat);
+  const result = map.queryRenderedFeatures(e.point, { layers: ['points'] });
+  if (result.length) {
+    const popup = new mapboxgl.Popup({container: 'map'});
+    popup.setLngLat([-0.1734961, 51.49432 ])
+      .setHTML('<h1>MapBox</h1>test')
+      .addTo(map)
+  }
+  console.log('click', e.lnglat);
 });
 
 getShops();
