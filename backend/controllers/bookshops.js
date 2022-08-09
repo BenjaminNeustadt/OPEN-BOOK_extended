@@ -1,17 +1,15 @@
 const Bookshop = require("../models/bookshop");
+const Search = require("../models/search")
+
+const search = new Search();
 
 // @description: Get bookshops
 // @route: GET /index
 
 const BookShopsController = {
   Display: (req, res) => {
-    const bookshopIds = []
     Bookshop.find((err, bookshops) => {
-      bookshops.forEach((bookshop) => {
-        let shop = bookshop.name.replace(/'/g, "").split(" ")
-        shop = shop.join("").toLowerCase()
-        bookshopIds.push(shop)
-      })
+      const bookshopIds = search.changeToIDS(bookshops);
       res.render('index', { bookshops: bookshops, bookshopIds: bookshopIds })
     });
   },
