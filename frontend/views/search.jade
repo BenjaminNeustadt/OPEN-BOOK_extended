@@ -2,7 +2,6 @@ extends ./layout
 block content 
   h1(class="title") Search
 
-  div(class="search-by-name") Search by Name
-    form(action="/openbook/search/results", method="get")
-      input(id="search", type="text", name="search", value="") 
-      input(id="submit-search", type="submit", value="Search")
+  form(action="/openbook/search/results", method="get")
+    input(id="search", type="text", name="search", value="") 
+    input(id="submit-search", type="submit", value="Search")
