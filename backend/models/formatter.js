@@ -9,11 +9,11 @@ class Formatter {
   }
 
   formatName(name) {
-    if (name == 'lgbtq') {
-      return 'LGBTQ';
-    }
     let id = name.replace(/'/g, "").split(" ")
     id = id.join("").toLowerCase()
+    if (id == 'lgbtq') {
+      return 'LGBTQ'
+    };
     return id;
   }
 
