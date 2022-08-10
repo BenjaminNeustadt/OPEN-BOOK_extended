@@ -100,7 +100,9 @@ getShops();
 
 
 const showMap = () => {
-  console.log("clicked")
+ 
   document.querySelector('#map').classList.remove('hide')
+  let rows = document.querySelectorAll('.shop-row');
+  rows.forEach(row => row.classList.add('hide-rows'))
 
 }
