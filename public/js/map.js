@@ -24,6 +24,8 @@ async function getShops() {
   const something = await res.json()
   console.log(something)
   const shops = something.data.map(shop => {
+    let hours = ""
+    shop.openingHours.forEach(e => hours += e + "\n")
     return {
           type: 'Feature',
           geometry: {
@@ -32,8 +34,8 @@ async function getShops() {
           },
           properties: {
             storeId: shop.name,
-            hours: shop.openingHours[0],
-            site: shop.website,
+            hours: hours,
+            website: shop.website,
             icon: 'shop'
           }
         }
@@ -80,8 +82,8 @@ map.on('click', e => {
     const popup = new mapboxgl.Popup();
     const name = `${result[0].properties.storeId}`;
     const hours = `${result[0].properties.hours}`
-    const website = `${result[0].properties.site}`
-    
+    const website = `${result[0].properties.website}`
+
     popup.setLngLat(e.lngLat)
       .setHTML(`<a href=${website} target="_blank" >${name}</a><br><p>${hours}</p><br>`)
       .addTo(map)
