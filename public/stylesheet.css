@@ -133,3 +133,10 @@ body {
   color: var(--primary-color);
 }
 
+.marker {
+  background-image: url('./images/book-black.png');
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
