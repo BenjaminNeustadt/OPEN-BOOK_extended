@@ -17,9 +17,9 @@ const BookShopsController = {
   SearchResults: (req, res) => {
     if (req.query.search) {
       Bookshop.find((err, bookshops) => {
-        let searchQuery = formatter.formatName(req.query.search);
-        let bookshopsWithIds = formatter.addIDS(bookshops);
-        searchResults = searcher.findSearchResults(searchQuery, bookshopsWithIds);
+        const searchQuery = formatter.formatName(req.query.search);
+        const bookshopsWithIds = formatter.addIDS(bookshops);
+        const searchResults = searcher.findSearchResults(searchQuery, bookshopsWithIds);
 
         res.render('index', {bookshops: searchResults})
       })

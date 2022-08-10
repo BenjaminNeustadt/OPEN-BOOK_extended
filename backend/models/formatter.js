@@ -3,7 +3,7 @@ class Formatter {
   addIDS(bookshops) {
     bookshops.forEach((bookshop) => {
       let shop = this.formatName(bookshop.name);
-      Object.assign(bookshop, {divId: shop});
+      Object.assign(bookshop, {divId: shop})
     })
     return bookshops;
   }
@@ -13,7 +13,7 @@ class Formatter {
     id = id.join("").toLowerCase()
     if (id == 'lgbtq') {
       return 'LGBTQ'
-    };
+    }
     return id;
   }
 
