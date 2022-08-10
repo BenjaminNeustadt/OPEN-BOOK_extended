@@ -183,6 +183,7 @@ body {
   background-color: var( --secondary-color);
   font-size: 18px;
   font-weight:bold;
+  padding:10px, 20px;
 }
 
 .search-form {
