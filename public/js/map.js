@@ -79,9 +79,11 @@ map.on('click', e => {
   if (result.length) {
 
     const popup = new mapboxgl.Popup();
-    const name = `${result[0].properties.storeId}`;
-    const hours = `${result[0].properties.hours}`
-    const website = `${result[0].properties.website}`
+    const name = result[0].properties.storeId;
+    const hours = result[0].properties.hours;
+    const website = result[0].properties.website;
+
+  
 
     popup.setLngLat(e.lngLat)
       .setHTML(`<a href=${website} target="_blank" >${name}</a><br><p>${hours}</p><br>`)
