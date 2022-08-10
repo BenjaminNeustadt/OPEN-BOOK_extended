@@ -42,7 +42,6 @@ async function getShops() {
   });
 
   loadMap(shops);
-  console.log(shops)
 }
 
 // Load map with stores
@@ -78,7 +77,7 @@ function loadMap(shops) {
 map.on('click', e => {
   const result = map.queryRenderedFeatures(e.point, { layers: ['points'] });
   if (result.length) {
-    console.log(result);
+
     const popup = new mapboxgl.Popup();
     const name = `${result[0].properties.storeId}`;
     const hours = `${result[0].properties.hours}`
@@ -88,7 +87,6 @@ map.on('click', e => {
       .setHTML(`<a href=${website} target="_blank" >${name}</a><br><p>${hours}</p><br>`)
       .addTo(map)
   }
-  console.log('click', e.lnglat);
 });
 
 getShops();
