@@ -11,7 +11,8 @@ class Search {
   findSearchResults() {
     const matchingNames = this.isSameName()
     const matchingTags = this.includesTag()
-    const filteredBookshops = matchingNames.concat(matchingTags);
+    const matchesStart = this.startsWith()
+    const filteredBookshops = [].concat(matchingNames, matchingTags, matchesStart);
     return filteredBookshops;
   }
 
@@ -21,6 +22,11 @@ class Search {
 
   includesTag() {
     return this.bookshops.filter(bookshop => bookshop.tags.includes(this.search))
+  }
+
+  startsWith() {
+    const lengthOfSearch = this.search.length;
+    return this.bookshops.filter(bookshop => bookshop.divId.substr(0, lengthOfSearch) == this.search)
   }
 }
 
