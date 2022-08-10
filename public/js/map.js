@@ -111,6 +111,7 @@ const showMap = () => {
     buttonEl.innerHTML = "List"
   } else {
     rows.forEach(row => row.classList.remove('hide-list'))
+    search.classList.remove('hide-list')
     document.querySelector('#map').classList.add('hide-map')
     buttonEl.innerHTML = "Map"
   }
