@@ -32,7 +32,8 @@ async function getShops() {
           },
           properties: {
             storeId: shop.name,
-            text: shop.openingHours[0],
+            hours: shop.openingHours[0],
+            site: shop,
             icon: 'shop'
           }
         }
@@ -77,10 +78,11 @@ map.on('click', e => {
   if (result.length) {
     console.log(result);
     const popup = new mapboxgl.Popup();
-    const content = result[0].properties.text;
+    const name = `${result[0].properties.storeId}`;
+    const hours = `${result[0].properties.hours}`
     
     popup.setLngLat(e.lngLat)
-      .setHTML(`${content}`)
+      .setHTML(`<p>${name}</p>`)
       .addTo(map)
   }
   console.log('click', e.lnglat);
