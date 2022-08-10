@@ -1,6 +1,12 @@
 class Search {
-  findSearchResults(search, bookshops) {
-    const filteredBookshops = bookshops.filter(bookshop => bookshop.divId == search || bookshop.tags.includes(search))
+  constructor(search, bookshops) {
+    this.search = search;
+    this.bookshops = bookshops;
+    return this.findSearchResults()
+  }
+
+  findSearchResults() {
+    const filteredBookshops = this.bookshops.filter(bookshop => bookshop.divId == this.search || bookshop.tags.includes(this.search))
     return filteredBookshops;
   }
 }
