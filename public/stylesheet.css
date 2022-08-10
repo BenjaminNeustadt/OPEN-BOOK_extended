@@ -96,6 +96,34 @@ body {
   height: 130px;
 }
 
+#no-results-found {
+  font-family: var(--heading-font);
+  text-align: center;
+  padding: 20px 20px;
+  color: var(--primary-color);
+  font-size: 20px;
+}
+
+.search-container {
+  text-align: center;
+  font-family: var(--body-font);
+  background-color: white;
+  border: 2px solid var(--primary-color);
+  border-radius: 4px;
+  box-shadow: 6px 5px 5px #ddeedf;
+  padding: 20px 60px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-top: 0px;
+  max-width: fit-content;
+}
+
+h2 {
+  color: var(--primary-color);
+  font-family: var(--body-font);
+}
+
 .hide-map {
   display: none;
 }

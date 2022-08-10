@@ -83,4 +83,12 @@ describe("The search function", () => {
 
     cy.get("#ribabookshop").should("exist")
   })
+
+  it('shows a message for no search results',() => {
+    cy.visit('/openbook');
+    cy.get('#search').type("rhythm in my soul");
+    cy.get('#submit-search').click();
+
+    cy.get('#no-results-found').should('contain', 'No results found')
+  })
 })
