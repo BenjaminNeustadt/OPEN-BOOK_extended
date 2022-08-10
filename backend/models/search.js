@@ -9,21 +9,24 @@ class Search {
   }
 
   findSearchResults() {
-    const matchingNames = this.matchesName()
-    const matchingTags = this.includesTag()
+    const matchingNames = this.filterByName()
+    const matchingTags = this.filterByTag()
     const filteredBookshops = [].concat(matchingNames, matchingTags);
     return filteredBookshops;
   }
 
-  matchesName() {
-    const lengthOfSearch = this.search.length
-    const result = this.bookshops.filter(bookshop => bookshop.divId.substr(0, lengthOfSearch) == this.search)
-    this.bookshops = this.bookshops.filter(bookshop => bookshop.divId.substr(0, lengthOfSearch) !== this.search)
+  filterByName() {
+    const result = this.bookshops.filter(bookshop => this.matchesName(bookshop))
+    this.bookshops = this.bookshops.filter(bookshop => !this.matchesName(bookshop))
     return result
   }
 
-  includesTag() {
+  filterByTag() {
     return this.bookshops.filter(bookshop => bookshop.tags.includes(this.search))
+  }
+
+  matchesName(bookshop) {
+    return bookshop.divId.substr(0, this.search.length) == this.search
   }
 }
 
