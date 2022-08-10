@@ -75,4 +75,12 @@ describe("The search function", () => {
     cy.get("#chenerbooks").should("exist")
     cy.get('#housmansbookshop').should("not.exist")
   })
+
+  it('searches by incomplete name',() => {
+    cy.visit('/openbook');
+    cy.get('#search').type("rib");
+    cy.get('#submit-search').click();
+
+    cy.get("#ribabookshop").should("exist")
+  })
 })
