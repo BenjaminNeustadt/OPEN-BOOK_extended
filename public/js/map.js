@@ -22,7 +22,6 @@ const map = new mapboxgl.Map({
 async function getShops() {
   const res = await fetch('/api/map');
   const something = await res.json()
-  console.log(something)
   const shops = something.data.map(shop => {
 
     return {
@@ -84,8 +83,6 @@ map.on('click', e => {
     const website = result[0].properties.website;
     const address = result[0].properties.address;
 
-   
-  
 
     popup.setLngLat(e.lngLat)
       .setHTML(`
