@@ -100,11 +100,17 @@ getShops();
 
 
 const showMap = () => {
- 
-  document.querySelector('#map').classList.remove('hide')
-  let rows = document.querySelectorAll('.shop-row');
-  rows.forEach(row => row.classList.add('hide-rows'))
   let buttonEl = document.querySelector('#toggle');
-  buttonEl.innerHTML = "List"
+  let rows = document.querySelectorAll('.shop-row');
+  if (buttonEl.innerHTML == "Map") {
+    document.querySelector('#map').classList.remove('hide')
+    rows.forEach(row => row.classList.add('hide-rows'))
+    buttonEl.innerHTML = "List"
+  } else {
+    rows.forEach(row => row.classList.remove('hide-rows'))
+    document.querySelector('#map').classList.add('hide')
+    buttonEl.innerHTML = "Map"
+  }
+ 
 
 }
