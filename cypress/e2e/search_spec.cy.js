@@ -56,6 +56,8 @@ describe("The search function", () => {
 
     cy.get("#ribabookshop").should("exist")
     cy.get("#chenerbooks").should("exist")
+
+    cy.get('#housmansbookshop').should("not.exist")
   })
 
   it("searches by tags for LGBTQ",() => {
@@ -71,7 +73,8 @@ describe("The search function", () => {
     cy.get('#search').type("lgbtq");
     cy.get('#submit-search').click();
 
-    cy.get(".bookshop-name").first().should('exist');
+    cy.get("#gaystheword").should('exist');
+    cy.get("chenerbooks").should('not.exist');
   })
 
   it("searches by tags regardless of capitalisation",() => {
