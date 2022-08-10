@@ -83,7 +83,7 @@ map.on('click', e => {
     const website = `${result[0].properties.site}`
     
     popup.setLngLat(e.lngLat)
-      .setHTML(`<p>${name}</p><br><p>${hours}</p><br><a href=${website}>website</a>`)
+      .setHTML(`<a href=${website} target="_blank" >${name}</a><br><p>${hours}</p><br>`)
       .addTo(map)
   }
   console.log('click', e.lnglat);
@@ -91,4 +91,3 @@ map.on('click', e => {
 
 getShops();
 
-// ${website}
