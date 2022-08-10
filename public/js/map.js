@@ -72,4 +72,6 @@ getShops();
 
 const showMap = () => {
   console.log("clicked")
+  document.querySelector('#map').classList.remove('hide')
+
 }

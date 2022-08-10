@@ -90,3 +90,7 @@ body {
 .address-row {
   height: 130px;
 }
+
+.hide {
+  display: none;
+}
