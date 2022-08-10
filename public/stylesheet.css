@@ -113,6 +113,8 @@ body {
   font-family: var(--heading-font);
   font-size: 25px;
   padding: 4px 8px;
+  position: fixed;
+  top: 100px;
   margin-left: 100px;
   margin-bottom: 50px;
   transition: ease-in-out 200ms;
