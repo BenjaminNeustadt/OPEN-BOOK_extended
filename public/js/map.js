@@ -23,76 +23,74 @@ async function getShops() {
   const received= await response.json()
   const shops = received.data.map(shop => {
 
-    return {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [shop.coordinates[0].$numberDecimal, shop.coordinates[1].$numberDecimal]
-          },
-          properties: {
-            storeId: shop.name,
-            hours: shop.openingHours,
-            website: shop.website,
-            address: shop.address,
-          }
-        }
+  return {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [shop.coordinates[0].$numberDecimal, shop.coordinates[1].$numberDecimal]
+      },
+      properties: {
+        storeId: shop.name,
+        hours: shop.openingHours,
+        website: shop.website,
+        address: shop.address,
+      }
+    }
   });
 
   loadMap(shops);
 }
 
-
-
 // Load map with stores
 function loadMap(shops) {
-    map.on('load', function() {
-            // add markers to map
-      for (const feature of shops) {
-        // create a HTML element for each feature
-        const el = document.createElement('div');
-        el.className = 'marker';
-        // make a marker for each feature and add to the map
-        new mapboxgl.Marker(el)
-        .setLngLat(feature.geometry.coordinates)
-        .setPopup(
-          new mapboxgl.Popup({ offset: 25 }) // add popups
-            .setHTML(
-              setInfo(feature)
-            )
-        )
-        .addTo(map)
-      }
+  map.on('load', function() {
+          // add markers to map
+    for (const feature of shops) {
+      // create a HTML element for each feature
+      const el = document.createElement('div');
+      el.className = 'marker';
+      // make a marker for each feature and add to the map
+      new mapboxgl.Marker(el)
+      .setLngLat(feature.geometry.coordinates)
+      .setPopup(
+        new mapboxgl.Popup({ offset: 25 }) // add popups
+          .setHTML(
+            setInfo(feature)
+          )
+      )
+      .addTo(map)
+    }
 
-      map.addLayer({
-        id: 'points',
-        type: 'symbol',
-        source: {
-          type: 'geojson',
-          data: {
-            type: 'FeatureCollection',
-            features: shops,
-         
-        }
-      },
-      layout: {
-        // 'icon-image': '{icon}-15',
-        // 'icon-size': 1.5,
-        'text-field': '{storeId}',
-        'text-size': 8,
-        'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-        'text-offset': [0, 1.2],
-        'text-anchor': 'top'
+    map.addLayer({
+      id: 'points',
+      type: 'symbol',
+      source: {
+        type: 'geojson',
+        data: {
+          type: 'FeatureCollection',
+          features: shops,
+        
       }
-    });
-
+    },
+    layout: {
+      // 'icon-image': '{icon}-15',
+      // 'icon-size': 1.5,
+      'text-field': '{storeId}',
+      'text-size': 8,
+      'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+      'text-offset': [0, 1.2],
+      'text-anchor': 'top'
+    }
   });
+
+});
 
 }
 
 const setInfo = (feature) => {
-
 let formattedHours = "";
 let formattedAddress = "";
+
 feature.properties.hours.forEach(line => formattedHours += `${line} <br/>`);
 feature.properties.address.forEach(line => formattedAddress += `${line} <br/>`);
 
@@ -108,10 +106,7 @@ return `
       <br>
       <p>${address}</p>
       `
-
-
 }
 
 
 getShops();
-
