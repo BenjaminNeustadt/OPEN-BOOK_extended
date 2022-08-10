@@ -97,8 +97,7 @@ body {
 }
 
 .hide-map {
-  visibility: collapse;
-  
+  display: none;
 }
 
 .hide-list {

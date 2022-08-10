@@ -3,7 +3,6 @@ describe('The homepage', () => {
         cy.visit('/openbook')
         cy.get('h1').should('contain', 'OpenBook')
     })
-
     
     xit("should redirect to homepage when url is '/' ", () => {
         cy.visit('/');
@@ -19,4 +18,6 @@ describe('The homepage', () => {
             expect(resp.status).to.eq(200)
         })
     })
+
+
 })
