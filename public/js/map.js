@@ -74,7 +74,6 @@ async function getShops() {
 // Load map with stores
 function loadMap(shops) {
     map.on('load', function() {
-
             // add markers to map
       for (const feature of shops) {
         // create a HTML element for each feature
@@ -86,7 +85,7 @@ function loadMap(shops) {
         .setPopup(
           new mapboxgl.Popup({ offset: 25 }) // add popups
             .setHTML(
-              `<h3>test</h3>`
+              test(feature)
             )
         )
         .addTo(map)
@@ -115,30 +114,26 @@ function loadMap(shops) {
     });
 
   });
-  // info.on('click', e => {
-  //   const result = map.queryRenderedFeatures(e.point, { layers: ['points'] });
-  //   if (result.length) {
-  //     console.log(result)
-  //     const name = result[0].properties.storeId;
-  //     const hours = result[0].properties.hours;
-  //     const website = result[0].properties.website;
-  //     const address = result[0].properties.address;
-  
-  
-  //     popup.setLngLat(e.lngLat)
-  //       .setHTML(`
-  //       <a href=${website} target="_blank" >${name}</a>
-  //       <br>
-  //       <p>${hours}</p>
-  //       <br>
-  //       <p>${address}</p>
-  //       `)
-       
-  //   }
-  // });
+
 }
 
+const test = (feature) => {
+console.log(feature)
+const name = feature.properties.storeId;
+const hours = feature.properties.hours;
+const website = feature.properties.website;
+const address = feature.properties.address;
 
+return `
+      <a href=${website} target="_blank" >${name}</a>
+      <br>
+      <p>${hours}</p>
+      <br>
+      <p>${address}</p>
+      `
+
+
+}
 // map.on('click', e => {
 //   const result = map.queryRenderedFeatures(e.point, { layers: ['points'] });
 //   if (result.length) {
