@@ -22,8 +22,8 @@ const map = new mapboxgl.Map({
 async function getShops() {
   const res = await fetch('/api/map');
   const something = await res.json()
-  console.log(something)
   const shops = something.data.map(shop => {
+
     return {
           type: 'Feature',
           geometry: {
@@ -32,18 +32,21 @@ async function getShops() {
           },
           properties: {
             storeId: shop.name,
+            hours: shop.openingHours,
+            website: shop.website,
+            address: shop.address,
             icon: 'shop'
           }
         }
   });
 
   loadMap(shops);
-  console.log(shops)
 }
 
 // Load map with stores
 function loadMap(shops) {
     map.on('load', function() {
+
       map.addLayer({
         id: 'points',
         type: 'symbol',
@@ -64,8 +67,34 @@ function loadMap(shops) {
         'text-anchor': 'top'
       }
     });
+
   });
 }
+
+
+
+map.on('click', e => {
+  const result = map.queryRenderedFeatures(e.point, { layers: ['points'] });
+  if (result.length) {
+
+    const popup = new mapboxgl.Popup();
+    const name = result[0].properties.storeId;
+    const hours = result[0].properties.hours;
+    const website = result[0].properties.website;
+    const address = result[0].properties.address;
+
+
+    popup.setLngLat(e.lngLat)
+      .setHTML(`
+      <a href=${website} target="_blank" >${name}</a>
+      <br>
+      <p>${hours}</p>
+      <br>
+      <p>${address}</p>
+      `)
+      .addTo(map)
+  }
+});
 
 getShops();
 
