@@ -1,17 +1,19 @@
 class Formatter {
 
-  changeToIDS(bookshops) {
-    let bookshopIds = []
+  addIDS(bookshops) {
     bookshops.forEach((bookshop) => {
       let shop = this.formatName(bookshop.name);
-      bookshopIds.push(shop)
+      Object.assign(bookshop, {divId: shop})
     })
-    return bookshopIds;
+    return bookshops;
   }
 
   formatName(name) {
     let id = name.replace(/'/g, "").split(" ")
     id = id.join("").toLowerCase()
+    if (id == 'lgbtq') {
+      return 'LGBTQ'
+    }
     return id;
   }
 

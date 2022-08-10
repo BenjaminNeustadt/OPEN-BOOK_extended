@@ -1,32 +1,27 @@
 const Bookshop = require("../models/bookshop");
 const Formatter = require("../models/formatter")
+const Search = require("../models/search")
 
 const formatter = new Formatter();
-
+const searcher = new Search();
 // @description: Get bookshops
 // @route: GET /index
 
 const BookShopsController = {
   Display: (req, res) => {
     Bookshop.find((err, bookshops) => {
-      const bookshopIds = formatter.changeToIDS(bookshops);
-      res.render('index', { bookshops: bookshops, bookshopIds: bookshopIds })
+      const bookshopsWithIds = formatter.addIDS(bookshops);
+      res.render('index', { bookshops: bookshopsWithIds })
     });
   },
-  
-  Search: (req, res) => {
-    res.render('search')
-  },
-
   SearchResults: (req, res) => {
     if (req.query.search) {
       Bookshop.find((err, bookshops) => {
-        let searchResult = formatter.formatName(req.query.search);
-        const bookshopIds = formatter.changeToIDS(bookshops);
-        if (searchResult == 'lgbtq') {
-          searchResult = 'LGBTQ';
-        }
-        res.render('search_results', {bookshops: bookshops, bookshopIds: bookshopIds, searchResult: searchResult})
+        const searchQuery = formatter.formatName(req.query.search);
+        const bookshopsWithIds = formatter.addIDS(bookshops);
+        const searchResults = searcher.findSearchResults(searchQuery, bookshopsWithIds);
+
+        res.render('index', {bookshops: searchResults})
       })
     } 
   }

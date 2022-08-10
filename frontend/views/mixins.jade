@@ -1,6 +1,6 @@
 //column mixin
 mixin column(i)
-  div(class="col-sm bookshop-container text-center", id="#{bookshopIds[i]}")
+  div(class="col-sm bookshop-container text-center", id="#{bookshops[i].divId}")
     div.row.title-row
         a(class='bookshop-name', href="#{bookshops[i].website}")  #{bookshops[i].name}
       div.row

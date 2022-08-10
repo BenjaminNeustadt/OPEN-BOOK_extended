@@ -16,11 +16,18 @@ block content
             a.nav-link(href='#') Donations
 
   h1.title OpenBook
+
+  h2.search Search
+
+  form(action="/openbook/search/results", method="get")
+    input(id="search", type="text", name="search", value="") 
+    input(id="submit-search", type="submit", value="Search")
+
   - for (let i = 0; i < bookshops.length; i++) {
     - if (((i == 0) || ((i +1) % 5 == 0)) && (i + 4 < bookshops.length)) {
         div(class="row")
           - for (let c = 0; c < 5; c ++) {
-            +column(i+c)
+              +column(i+c)
           -}
     - } else if ((i == 0) || ((i + 1) % 5 == 0)) {
       -const counter = bookshops.length - i

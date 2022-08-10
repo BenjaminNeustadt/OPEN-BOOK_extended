@@ -5,7 +5,6 @@ const router = express.Router();
 const BookShopsController = require("../controllers/bookshops");
 
 router.get("/", BookShopsController.Display);
-router.get("/search", BookShopsController.Search);
 router.get("/search/results", BookShopsController.SearchResults)
 
 module.exports = router;
