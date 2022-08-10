@@ -17,7 +17,9 @@ class Search {
   }
 
   isSameName() {
-    return this.bookshops.filter(bookshop => bookshop.divId == this.search)
+    const result = this.bookshops.filter(bookshop => bookshop.divId == this.search)
+    this.bookshops = this.bookshops.filter(bookshop => bookshop.divId !== this.search)
+    return result
   }
 
   includesTag() {
