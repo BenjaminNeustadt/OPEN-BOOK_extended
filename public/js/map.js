@@ -102,9 +102,12 @@ getShops();
 const showMap = () => {
   let buttonEl = document.querySelector('#toggle');
   let rows = document.querySelectorAll('.shop-row');
+  let search = document.querySelector('.search-container');
+
   if (buttonEl.innerHTML == "Map") {
     document.querySelector('#map').classList.remove('hide-map')
     rows.forEach(row => row.classList.add('hide-list'))
+    search.classList.add('hide-list')
     buttonEl.innerHTML = "List"
   } else {
     rows.forEach(row => row.classList.remove('hide-list'))
