@@ -150,9 +150,10 @@ body {
 }
 
 .search-container {
-  text-align:left;
   font-family: var(--body-font);
-  margin-left: 215px;
+  margin-top: 100px;
+  
+  
 }
 
 .search {
@@ -171,8 +172,8 @@ body {
   background-color: var(--background-color);;
   border: none;
   color: var(--primary-color);
+  width: 250px;
 }
-
 
 .search-input:focus {
   outline: none;
@@ -181,12 +182,26 @@ body {
 .search-submit {
   color: var(--primary-color);
   background-color: var( --secondary-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: 3px;
+  box-shadow: 6px 5px 5px #ddeedf;
   font-size: 18px;
   font-weight:bold;
   padding:10px, 20px;
+  transition: ease-in-out 250ms;
+}
+
+.search-submit:hover {
+  color: var(--tertiary-color);
+  background-color: var( --primary-color);
+  border: 1px solid var(--primary-color);
 }
 
 .search-form {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 5px;
+}
+
+.search-row {
+  padding: 0;
 }

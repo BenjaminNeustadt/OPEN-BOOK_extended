@@ -6,11 +6,13 @@ block content
   button#toggle(onclick='showMap()') Map
 
   div.search-container
-    div.search Search by name or genre
-    form.search-form(action="/openbook/search/results", method="get")
-      input.search-input(id="search", type="text", name="search", value="", placeholder="eg. brick lane, lgbtq, history") 
-      input.search-submit(id="submit-search", type="submit", value="Search")
-  
+    div.container
+      div.row.search-row
+        div.search Search by name or genre
+        form.search-form(action="/openbook/search/results", method="get")
+          input.search-input(id="search", type="text", name="search", value="", placeholder="eg. brick lane, lgbtq, history") 
+          input.search-submit(id="submit-search", type="submit", value="Search")
+      
   - if (bookshops.length == 0) {
       p(id='no-results-found') No results found
   - } 
