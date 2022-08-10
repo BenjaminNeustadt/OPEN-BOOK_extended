@@ -22,7 +22,7 @@ body {
   color: var(--primary-color);
   font-family: var(--heading-font);
   font-size: 70px;
-  margin: 60px 0 50px 0;
+  margin: 150px 0 50px 0;
   text-align: center;
 }
 
@@ -57,7 +57,7 @@ body {
   box-shadow: 6px 5px 5px #ddeedf;
   padding: 20px 20px;
   margin: 30px 20px 30px 0;
- 
+  max-width: 255px;
 }
 
 .bookshop-address {
@@ -86,8 +86,6 @@ body {
 .title-row {
   height: 50px;
 }
-
-
 
 .mapboxgl-popup {
   max-width: 400px;
@@ -126,3 +124,32 @@ h2 {
   font-family: var(--body-font);
 }
 
+.hide-map {
+  display: none;
+}
+
+.hide-list {
+  display: none;
+}
+
+#toggle {
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 3px;
+  box-shadow: 6px 5px 5px #ddeedf;
+  color: var(--tertiary-color);
+  font-family: var(--heading-font);
+  font-size: 25px;
+  padding: 4px 8px;
+  position: fixed;
+  top: 100px;
+  margin-left: 100px;
+  margin-bottom: 50px;
+  transition: ease-in-out 200ms;
+}
+
+#toggle:hover {
+  background-color: var(--tertiary-color);
+  border: 1px solid var(--tertiary-color);
+  color: var(--primary-color);
+}
