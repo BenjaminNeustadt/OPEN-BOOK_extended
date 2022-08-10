@@ -14,11 +14,6 @@ const BookShopsController = {
       res.render('index', { bookshops: bookshopsWithIds })
     });
   },
-  
-  Search: (req, res) => {
-    res.render('search')
-  },
-
   SearchResults: (req, res) => {
     if (req.query.search) {
       Bookshop.find((err, bookshops) => {
