@@ -98,3 +98,11 @@ body {
   height: 130px;
 }
 
+#no-results-found {
+  font-family: var(--heading-font);
+  text-align: center;
+  padding: 20px 20px;
+  color: var(--primary-color);
+  font-size: 20px;
+}
+
