@@ -103,12 +103,12 @@ const showMap = () => {
   let buttonEl = document.querySelector('#toggle');
   let rows = document.querySelectorAll('.shop-row');
   if (buttonEl.innerHTML == "Map") {
-    document.querySelector('#map').classList.remove('hide')
+    document.querySelector('#map').classList.remove('hide-map')
     rows.forEach(row => row.classList.add('hide-rows'))
     buttonEl.innerHTML = "List"
   } else {
     rows.forEach(row => row.classList.remove('hide-rows'))
-    document.querySelector('#map').classList.add('hide')
+    document.querySelector('#map').classList.add('hide-map')
     buttonEl.innerHTML = "Map"
   }
  
