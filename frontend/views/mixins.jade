@@ -1,5 +1,6 @@
 //column mixin
 mixin column(i)
+  if searchResult == bookshopIds[i] || bookshops[i].tags.includes(searchResult)
   div(class="col-sm bookshop-container text-center", id="#{bookshopIds[i]}")
     div(class='bookshop-name') #{bookshops[i].name}
     a(class='website-link', href="#{bookshops[i].website}") Visit Website

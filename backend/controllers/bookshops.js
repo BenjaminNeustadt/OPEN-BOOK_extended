@@ -26,7 +26,7 @@ const BookShopsController = {
         if (searchResult == 'lgbtq') {
           searchResult = 'LGBTQ';
         }
-        res.render('search_results', {bookshops: bookshops, bookshopIds: bookshopIds, searchResult: searchResult})
+        res.render('index', {bookshops: bookshops, bookshopIds: bookshopIds, searchResult: searchResult})
       })
     } 
   }
