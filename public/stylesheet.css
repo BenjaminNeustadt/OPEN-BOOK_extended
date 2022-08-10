@@ -142,10 +142,10 @@ body {
 }
 
 .marker {
-  background-image: url('./images/book-white.png');
+  background-image: url('./images/location.png');
   background-size: cover;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
 }
 

@@ -111,8 +111,6 @@ return `
       <p class="bookshop-address mt-3">${address}</p>
       <br>
       <p class="times">${hours}</p>
-      
-      
       `
 }
 
