@@ -6,7 +6,6 @@ const map = new mapboxgl.Map({
   center: [-0.118092, 51.509865]
 });
 
-
 // OPTIONS/ NB
 
 // mapbox needs them to be in the order: longitude-latitude, else it will not center
@@ -20,24 +19,23 @@ const map = new mapboxgl.Map({
 
 // Fetch stores from API
 async function getShops() {
-  const res = await fetch('/api/map');
-  const something = await res.json()
-  const shops = something.data.map(shop => {
+  const response = await fetch('/api/map');
+  const received= await response.json()
+  const shops = received.data.map(shop => {
 
-    return {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [shop.coordinates[0].$numberDecimal, shop.coordinates[1].$numberDecimal]
-          },
-          properties: {
-            storeId: shop.name,
-            hours: shop.openingHours,
-            website: shop.website,
-            address: shop.address,
-            icon: 'shop'
-          }
-        }
+  return {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [shop.coordinates[0].$numberDecimal, shop.coordinates[1].$numberDecimal]
+      },
+      properties: {
+        storeId: shop.name,
+        hours: shop.openingHours,
+        website: shop.website,
+        address: shop.address,
+      }
+    }
   });
 
   loadMap(shops);
@@ -45,56 +43,72 @@ async function getShops() {
 
 // Load map with stores
 function loadMap(shops) {
-    map.on('load', function() {
+  map.on('load', function() {
+          // add markers to map
+    for (const feature of shops) {
+      // create a HTML element for each feature
+      const el = document.createElement('div');
+      el.className = 'marker';
+      // make a marker for each feature and add to the map
+      new mapboxgl.Marker(el)
+      .setLngLat(feature.geometry.coordinates)
+      .setPopup(
+        new mapboxgl.Popup({ offset: 25 }) // add popups
+          .setHTML(
+            setInfo(feature)
+          )
+      )
+      .addTo(map)
+    }
 
-      map.addLayer({
-        id: 'points',
-        type: 'symbol',
-        source: {
-          type: 'geojson',
-          data: {
-            type: 'FeatureCollection',
-            features: shops,
-        }
-      },
-      layout: {
-        'icon-image': '{icon}-15',
-        'icon-size': 1.5,
-        'text-field': '{storeId}',
-        'text-size': 8,
-        'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-        'text-offset': [0, 1.2],
-        'text-anchor': 'top'
+    map.addLayer({
+      id: 'points',
+      type: 'symbol',
+      source: {
+        type: 'geojson',
+        data: {
+          type: 'FeatureCollection',
+          features: shops,
+        
       }
-    });
-
+    },
+    layout: {
+      // 'icon-image': '{icon}-15',
+      // 'icon-size': 1.5,
+      'text-field': '{storeId}',
+      'text-size': 8,
+      'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+      'text-offset': [0, 1.2],
+      'text-anchor': 'top'
+    }
   });
+
+});
+
 }
 
+const setInfo = (feature) => {
+let formattedHours = "";
+let formattedAddress = "";
 
+feature.properties.hours.forEach(line => formattedHours += `${line} <br/>`);
+feature.properties.address.forEach(line => formattedAddress += `${line} <br/>`);
 
-map.on('click', e => {
-  const result = map.queryRenderedFeatures(e.point, { layers: ['points'] });
-  if (result.length) {
+const name = feature.properties.storeId;
+const hours = formattedHours;
+const website = feature.properties.website;
+const address = formattedAddress;
 
-    const popup = new mapboxgl.Popup();
-    const name = result[0].properties.storeId;
-    const hours = result[0].properties.hours;
-    const website = result[0].properties.website;
-    const address = result[0].properties.address;
-
-
-    popup.setLngLat(e.lngLat)
-      .setHTML(`
+return `
       <a href=${website} target="_blank" >${name}</a>
       <br>
       <p>${hours}</p>
       <br>
       <p>${address}</p>
-      `)
-      .addTo(map)
-  }
-});
+      `
+}
+
+
 
 getShops();
 
@@ -123,3 +137,4 @@ const showMap = () => {
  
 
 }
+

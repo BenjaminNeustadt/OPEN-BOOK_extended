@@ -96,6 +96,15 @@ body {
   height: 130px;
 }
 
+
+.marker {
+  background-image: url('./images/book-black.png');
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
 #no-results-found {
   font-family: var(--heading-font);
   text-align: center;
@@ -153,3 +162,4 @@ h2 {
   border: 1px solid var(--tertiary-color);
   color: var(--primary-color);
 }
+
