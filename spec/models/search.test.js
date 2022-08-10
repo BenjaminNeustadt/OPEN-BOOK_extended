@@ -12,4 +12,16 @@ describe('Search',() => {
       {name: "Sarah's Books", address: ["Sarah's Home", "SE4 3SD"], tags: ['happy', 'sad'], id: 'sarahsbooks'}
     ]);
   })
+
+  it('filters for a tag',() => {
+    const searchObject = new Search;
+    const bookshops = [
+      {name: "Art Of Your's", address: ["53 The Street", "SE6 23S"], tags: ['happy', 'sad'], id: 'artofyours'},
+      {name: "Sarah's Books", address: ["Sarah's Home", "SE4 3SD"], tags: ['miserable', 'sad'], id: 'sarahsbooks'}
+    ]
+    const search = 'happy'
+    expect(searchObject.searchFilter(search, bookshops)).toEqual([
+      {name: "Art Of Your's", address: ["53 The Street", "SE6 23S"], tags: ['happy', 'sad'], id: 'artofyours'}
+    ]);
+  })
 })
