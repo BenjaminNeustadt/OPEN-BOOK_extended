@@ -160,3 +160,8 @@ body {
   font-family: var(--heading-font);
   font-size: 25px;
 }
+
+.search-input::placeholder {
+  color: var(--primary-color);
+  background-color: var(--background-color);
+}
