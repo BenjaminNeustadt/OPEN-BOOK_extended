@@ -56,7 +56,7 @@ body {
   border-radius: 4px;
   box-shadow: 6px 5px 5px #ddeedf;
   padding: 20px 20px;
-  margin: 30px 20px 30px 0;
+  margin: 30px 0;
   max-width: 255px;
 }
 
@@ -86,6 +86,12 @@ body {
 
 .title-row {
   height: 50px;
+  padding: 0;
+}
+
+.shop-row {
+  justify-content: space-between;
+  padding: 0;
 }
 
 .mapboxgl-popup {
