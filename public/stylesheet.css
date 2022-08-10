@@ -119,3 +119,8 @@ body {
   transition: ease-in-out 200ms;
 }
 
+#toggle:hover {
+  background-color: var(--tertiary-color);
+  border: 1px solid var(--tertiary-color);
+  color: var(--primary-color);
+}
