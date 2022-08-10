@@ -20,7 +20,7 @@ block content
   div.search-container
     h2.search Search by name or genre
     form(action="/openbook/search/results", method="get")
-      input(id="search", type="text", name="search", value="", placeholder="brick lane, lgbtq, history") 
+      input(id="search", type="text", name="search", value="", placeholder="eg. brick lane, lgbtq, history") 
       input(id="submit-search", type="submit", value="Search")
 
   - for (let i = 0; i < bookshops.length; i++) {
