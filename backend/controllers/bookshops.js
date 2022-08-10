@@ -9,8 +9,8 @@ const formatter = new Formatter();
 const BookShopsController = {
   Display: (req, res) => {
     Bookshop.find((err, bookshops) => {
-      const bookshopIds = formatter.changeToIDS(bookshops);
-      res.render('index', { bookshops: bookshops, bookshopIds: bookshopIds })
+      const bookshopsWithIds = formatter.addIDS(bookshops);
+      res.render('index', { bookshops: bookshopsWithIds })
     });
   },
   
@@ -22,11 +22,9 @@ const BookShopsController = {
     if (req.query.search) {
       Bookshop.find((err, bookshops) => {
         let searchResult = formatter.formatName(req.query.search);
-        const bookshopIds = formatter.changeToIDS(bookshops);
-        if (searchResult == 'lgbtq') {
-          searchResult = 'LGBTQ';
-        }
-        res.render('index', {bookshops: bookshops, bookshopIds: bookshopIds, searchResult: searchResult})
+        let bookshopsWithIds = formatter.addIDS(bookshops);
+
+        res.render('index', {bookshops: bookshopsWithIds, searchResult: searchResult})
       })
     } 
   }

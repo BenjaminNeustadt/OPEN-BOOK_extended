@@ -27,7 +27,6 @@ block content
     - if (((i == 0) || ((i +1) % 5 == 0)) && (i + 4 < bookshops.length)) {
         div(class="row")
           - for (let c = 0; c < 5; c ++) {
-            if searchResult == bookshopIds[i+c] || bookshops[i+c].tags.includes(searchResult)
               +column(i+c)
           -}
     - } else if ((i == 0) || ((i + 1) % 5 == 0)) {
