@@ -17,7 +17,7 @@ class Search {
 
   filterByName() {
     const result = this.bookshops.filter(bookshop => this.matchesName(bookshop))
-    this.bookshops = this.bookshops.filter(bookshop => !this.matchesName(bookshop))
+    this.removePossibleDuplicates();
     return result
   }
 
@@ -27,6 +27,10 @@ class Search {
 
   matchesName(bookshop) {
     return bookshop.divId.substr(0, this.search.length) == this.search
+  }
+
+  removePossibleDuplicates() {
+    this.bookshops = this.bookshops.filter(bookshop => !this.matchesName(bookshop))
   }
 }
 
