@@ -108,9 +108,11 @@ const address = formattedAddress;
 return `
       <a class="bookshop-name" href=${website} target="_blank" >${name}</a>
       <br>
-      <p class="times">${hours}</p>
+      <p class="bookshop-address mt-3">${address}</p>
       <br>
-      <p class="bookshop-address">${address}</p>
+      <p class="times">${hours}</p>
+      
+      
       `
 }
 
