@@ -1,7 +1,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiemVpbnp6dSIsImEiOiJjbDZpajJoejEwMDRjM2pqdHk5OTR3c3NtIn0.K39ZfeJfxbHD6mq_lKxmjw';
 const map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/raphaella-rose/cl6o4aqdn001014p7r8i493x2',
+  style: 'mapbox://styles/raphaella-rose/cl6o2azxu000a15laarotakgd',
   zoom: 12,
   center: [-0.118092, 51.509865]
 });
@@ -82,10 +82,13 @@ function loadMap(shops) {
       // 'icon-image': '{icon}-15',
       // 'icon-size': 1.5,
       'text-field': '{storeId}',
-      'text-size': 8,
+      'text-size': 10,
       'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-      'text-offset': [0, 1.2],
+      'text-offset': [0, 1.5],
       'text-anchor': 'top'
+    },
+    paint: {
+      'text-color': '#182100',
     }
   });
 
