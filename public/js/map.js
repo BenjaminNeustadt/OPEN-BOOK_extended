@@ -6,34 +6,6 @@ const map = new mapboxgl.Map({
   center: [-0.118092, 51.509865]
 });
 
-// const geojson = {
-//   type: 'FeatureCollection',
-//   features: [
-//     {
-//       type: 'Feature',
-//       geometry: {
-//         type: 'Point',
-//         coordinates: [-0.118092, 51.509865]
-//       },
-//       properties: {
-//         title: 'Mapbox',
-//         description: 'Washington, D.C.'
-//       }
-//     }
-//   ]
-// };
-
-// // add markers to map
-// for (const feature of geojson.features) {
-//   // create a HTML element for each feature
-//   const el = document.createElement('div');
-//   el.className = 'marker';
-//   // make a marker for each feature and add to the map
-// new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map);
-// }
-
-
-
 // OPTIONS/ NB
 
 // mapbox needs them to be in the order: longitude-latitude, else it will not center
@@ -85,7 +57,7 @@ function loadMap(shops) {
         .setPopup(
           new mapboxgl.Popup({ offset: 25 }) // add popups
             .setHTML(
-              test(feature)
+              setInfo(feature)
             )
         )
         .addTo(map)
@@ -117,7 +89,7 @@ function loadMap(shops) {
 
 }
 
-const test = (feature) => {
+const setInfo = (feature) => {
 
 let formattedHours = "";
 let formattedAddress = "";
@@ -139,28 +111,7 @@ return `
 
 
 }
-// map.on('click', e => {
-//   const result = map.queryRenderedFeatures(e.point, { layers: ['points'] });
-//   if (result.length) {
-//     console.log(result)
-//     const popup = new mapboxgl.Popup();
-//     const name = result[0].properties.storeId;
-//     const hours = result[0].properties.hours;
-//     const website = result[0].properties.website;
-//     const address = result[0].properties.address;
 
-
-//     popup.setLngLat(e.lngLat)
-//       .setHTML(`
-//       <a href=${website} target="_blank" >${name}</a>
-//       <br>
-//       <p>${hours}</p>
-//       <br>
-//       <p>${address}</p>
-//       `)
-//       .addTo(map)
-//   }
-// });
 
 getShops();
 
