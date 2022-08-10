@@ -1,18 +1,17 @@
 //column mixin
 mixin column(i)
   div(class="col-sm bookshop-container text-center", id="#{bookshopIds[i]}")
-    div(class='bookshop-name') #{bookshops[i].name}
-    a(class='website-link', href="#{bookshops[i].website}") Visit Website
-    p(class='bookshop-address')
-      each item in bookshops[i].address
-        | #{item}
-        br
-    div(class='opening-hours') Opening hours
-    div(class='times')
-      each item in bookshops[i].openingHours
-        | #{item}
-        br
-    div(class='tags') 
-      each tag in bookshops[i].tags
-        | ##{tag} 
+    div.row.title-row
+        a(class='bookshop-name', href="#{bookshops[i].website}")  #{bookshops[i].name}
+      div.row
+        p(class='bookshop-address')
+          each item in bookshops[i].address
+            | #{item}
+            br
+      div.row
+        div(class='opening-hours') Opening hours
+        div(class='times')
+          each item in bookshops[i].openingHours
+            | #{item}
+            br
         block
