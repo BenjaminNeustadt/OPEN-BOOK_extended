@@ -69,7 +69,7 @@ describe('Search',() => {
     ]);
   })
 
-  xit('removes duplicates when two tags match',() => {
+  it('removes duplicates when two tags match',() => {
     const bookshops = [
       {name: "Sarah's Books", address: ["Sarah's Home", "SE4 3SD"], tags: ['sarah', 'sarah is sad'], divId: 'sarahsbooks'}
     ]
