@@ -173,9 +173,6 @@ body {
   color: var(--primary-color);
 }
 
-.search-form {
-  margin-top: 10px;;
-}
 
 .search-input:focus {
   outline: none;
@@ -188,6 +185,7 @@ body {
   font-weight:bold;
 }
 
-
-/* --secondary-color: #b6cdbd;
---tertiary-color: #ddeedf; */
+.search-form {
+  margin-top: 10px;
+  margin-left: 5px;
+}
