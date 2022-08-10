@@ -6,6 +6,33 @@ const map = new mapboxgl.Map({
   center: [-0.118092, 51.509865]
 });
 
+// const geojson = {
+//   type: 'FeatureCollection',
+//   features: [
+//     {
+//       type: 'Feature',
+//       geometry: {
+//         type: 'Point',
+//         coordinates: [-0.118092, 51.509865]
+//       },
+//       properties: {
+//         title: 'Mapbox',
+//         description: 'Washington, D.C.'
+//       }
+//     }
+//   ]
+// };
+
+// // add markers to map
+// for (const feature of geojson.features) {
+//   // create a HTML element for each feature
+//   const el = document.createElement('div');
+//   el.className = 'marker';
+//   // make a marker for each feature and add to the map
+// new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map);
+// }
+
+
 
 // OPTIONS/ NB
 
@@ -20,9 +47,9 @@ const map = new mapboxgl.Map({
 
 // Fetch stores from API
 async function getShops() {
-  const res = await fetch('/api/map');
-  const something = await res.json()
-  const shops = something.data.map(shop => {
+  const response = await fetch('/api/map');
+  const received= await response.json()
+  const shops = received.data.map(shop => {
 
     return {
           type: 'Feature',
@@ -35,7 +62,6 @@ async function getShops() {
             hours: shop.openingHours,
             website: shop.website,
             address: shop.address,
-            icon: 'shop'
           }
         }
   });
@@ -43,9 +69,26 @@ async function getShops() {
   loadMap(shops);
 }
 
+
+
 // Load map with stores
 function loadMap(shops) {
     map.on('load', function() {
+
+            // add markers to map
+      for (const feature of shops) {
+        // create a HTML element for each feature
+        const el = document.createElement('div');
+        el.className = 'marker';
+        // make a marker for each feature and add to the map
+      new mapboxgl.Marker(el)
+        .setLngLat(feature.geometry.coordinates)
+        // .setPopup(
+        //   new mapboxgl.Popup({ offset: 25 }) // add popups
+        //     .setHTML('<h1>HElloo</h1>')
+        .addTo(map)
+        // )
+      }
 
       map.addLayer({
         id: 'points',
@@ -55,11 +98,12 @@ function loadMap(shops) {
           data: {
             type: 'FeatureCollection',
             features: shops,
+         
         }
       },
       layout: {
-        'icon-image': '{icon}-15',
-        'icon-size': 1.5,
+        // 'icon-image': '{icon}-15',
+        // 'icon-size': 1.5,
         'text-field': '{storeId}',
         'text-size': 8,
         'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
@@ -68,15 +112,10 @@ function loadMap(shops) {
       }
     });
 
-  });
-}
-
-
-
-map.on('click', e => {
+    map.on('click', e => {
   const result = map.queryRenderedFeatures(e.point, { layers: ['points'] });
   if (result.length) {
-
+    console.log(result)
     const popup = new mapboxgl.Popup();
     const name = result[0].properties.storeId;
     const hours = result[0].properties.hours;
@@ -95,6 +134,33 @@ map.on('click', e => {
       .addTo(map)
   }
 });
+
+  });
+}
+
+
+// map.on('click', e => {
+//   const result = map.queryRenderedFeatures(e.point, { layers: ['points'] });
+//   if (result.length) {
+//     console.log(result)
+//     const popup = new mapboxgl.Popup();
+//     const name = result[0].properties.storeId;
+//     const hours = result[0].properties.hours;
+//     const website = result[0].properties.website;
+//     const address = result[0].properties.address;
+
+
+//     popup.setLngLat(e.lngLat)
+//       .setHTML(`
+//       <a href=${website} target="_blank" >${name}</a>
+//       <br>
+//       <p>${hours}</p>
+//       <br>
+//       <p>${address}</p>
+//       `)
+//       .addTo(map)
+//   }
+// });
 
 getShops();
 
