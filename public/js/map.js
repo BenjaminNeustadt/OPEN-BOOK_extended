@@ -82,7 +82,7 @@ map.on('click', e => {
     const hours = `${result[0].properties.hours}`
     
     popup.setLngLat(e.lngLat)
-      .setHTML(`<p>${name}</p>`)
+      .setHTML(`<p>${name}</p><br><p>${hours}</p>`)
       .addTo(map)
   }
   console.log('click', e.lnglat);
