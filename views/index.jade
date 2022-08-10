@@ -7,7 +7,7 @@ block content
 
   div.search-container
     div.search Search by name or genre
-    form(action="/openbook/search/results", method="get")
+    form.search-form(action="/openbook/search/results", method="get")
       input.search-input(id="search", type="text", name="search", value="", placeholder="eg. brick lane, lgbtq, history") 
       input(id="submit-search", type="submit", value="Search")
   

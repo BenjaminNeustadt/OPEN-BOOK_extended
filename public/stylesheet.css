@@ -165,3 +165,10 @@ body {
   color: var(--primary-color);
   background-color: var(--background-color);
 }
+
+.search-input{
+  background-color: var(--background-color);;
+  border: none;
+}
+
+
