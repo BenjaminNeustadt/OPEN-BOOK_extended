@@ -3,7 +3,6 @@ const Formatter = require("../models/formatter")
 const Search = require("../models/search")
 
 const formatter = new Formatter();
-const searcher = new Search();
 // @description: Get bookshops
 // @route: GET /index
 
@@ -19,7 +18,7 @@ const BookShopsController = {
       Bookshop.find((err, bookshops) => {
         const searchQuery = formatter.formatName(req.query.search);
         const bookshopsWithIds = formatter.addIDS(bookshops);
-        const searchResults = searcher.findSearchResults(searchQuery, bookshopsWithIds);
+        const searchResults = new Search(searchQuery, bookshopsWithIds);
 
         res.render('index', {bookshops: searchResults})
       })
