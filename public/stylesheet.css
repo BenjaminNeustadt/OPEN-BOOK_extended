@@ -164,11 +164,17 @@ body {
 .search-input::placeholder {
   color: var(--primary-color);
   background-color: var(--background-color);
+  opacity: 0.7;
 }
 
 .search-input{
   background-color: var(--background-color);;
   border: none;
+  color: var(--primary-color);
+}
+
+.search-input:focus {
+  outline: none;
 }
 
 
