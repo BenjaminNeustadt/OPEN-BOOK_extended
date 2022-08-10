@@ -19,7 +19,7 @@ class Search {
   }
 
   filterByTag() {
-    return this.bookshops.filter(bookshop => bookshop.tags.includes(this.search))
+    return this.bookshops.filter(bookshop => this.checkForMatchingTag(bookshop.tags))
   }
 
   matchesName(bookshop) {
@@ -28,6 +28,16 @@ class Search {
 
   removePossibleDuplicates() {
     this.bookshops = this.bookshops.filter(bookshop => !this.matchesName(bookshop))
+  }
+
+  checkForMatchingTag(tags) {
+    let result = false
+    tags.map((tag) => {
+      if (tag.substr(0, this.search.length) == this.search) {
+        result = true
+      }
+    })
+    return result
   }
 }
 
