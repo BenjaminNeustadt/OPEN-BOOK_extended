@@ -81,13 +81,15 @@ function loadMap(shops) {
         const el = document.createElement('div');
         el.className = 'marker';
         // make a marker for each feature and add to the map
-      new mapboxgl.Marker(el)
+        new mapboxgl.Marker(el)
         .setLngLat(feature.geometry.coordinates)
-        // .setPopup(
-        //   new mapboxgl.Popup({ offset: 25 }) // add popups
-        //     .setHTML('<h1>HElloo</h1>')
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              `<h3>test</h3>`
+            )
+        )
         .addTo(map)
-        // )
       }
 
       map.addLayer({
@@ -112,30 +114,28 @@ function loadMap(shops) {
       }
     });
 
-    map.on('click', e => {
-  const result = map.queryRenderedFeatures(e.point, { layers: ['points'] });
-  if (result.length) {
-    console.log(result)
-    const popup = new mapboxgl.Popup();
-    const name = result[0].properties.storeId;
-    const hours = result[0].properties.hours;
-    const website = result[0].properties.website;
-    const address = result[0].properties.address;
-
-
-    popup.setLngLat(e.lngLat)
-      .setHTML(`
-      <a href=${website} target="_blank" >${name}</a>
-      <br>
-      <p>${hours}</p>
-      <br>
-      <p>${address}</p>
-      `)
-      .addTo(map)
-  }
-});
-
   });
+  // info.on('click', e => {
+  //   const result = map.queryRenderedFeatures(e.point, { layers: ['points'] });
+  //   if (result.length) {
+  //     console.log(result)
+  //     const name = result[0].properties.storeId;
+  //     const hours = result[0].properties.hours;
+  //     const website = result[0].properties.website;
+  //     const address = result[0].properties.address;
+  
+  
+  //     popup.setLngLat(e.lngLat)
+  //       .setHTML(`
+  //       <a href=${website} target="_blank" >${name}</a>
+  //       <br>
+  //       <p>${hours}</p>
+  //       <br>
+  //       <p>${address}</p>
+  //       `)
+       
+  //   }
+  // });
 }
 
 
