@@ -69,3 +69,7 @@ function loadMap(shops) {
 
 getShops();
 
+
+const showMap = () => {
+  console.log("clicked")
+}
