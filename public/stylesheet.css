@@ -47,7 +47,7 @@ body {
 }
 
 .row {
-  padding: 0 20px;
+  padding: 0;
 }
 
 .bookshop-container {
@@ -66,13 +66,14 @@ body {
   font-family: var(--body-font);
   font-size: 17px;
   margin-top: 10px;
+  margin-bottom: 0;
 }
 
 .opening-hours {
   color: var(--primary-color);
   font-family: var(--body-font);
   font-size: 17px;
-  margin-top: 10px;
+  font-weight: 800;
   text-align: left;
 }
 
@@ -208,4 +209,9 @@ body {
 
 .search-row {
   padding: 0;
+}
+
+.address-row {
+  height: 180px;
+  margin-top: 10px;
 }
