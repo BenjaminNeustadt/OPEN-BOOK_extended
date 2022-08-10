@@ -1,3 +1,4 @@
+include mixins
 extends ./layout
 block content 
   nav.navbar.navbar-expand-lg.bg-light
@@ -13,33 +14,16 @@ block content
             a.nav-link.search-link(href="/openbook/search") Search
           li.nav-item
             a.nav-link(href='#') Donations
+
   h1.title OpenBook
-  mixin column(i)
-    div(class="col-sm bookshop-container text-center", id="#{bookshopIds[i]}")
-      div.row.title-row
-        a(class='bookshop-name', href="#{bookshops[i].website}")  #{bookshops[i].name}
-      div.row.address-row
-        p(class='bookshop-address')
-          each item in bookshops[i].address
-            | #{item}
-            br
-      div.row
-        div(class='opening-hours') Opening hours
-        div(class='times')
-          each item in bookshops[i].openingHours
-            | #{item}
-            br
-      
   - for (let i = 0; i < bookshops.length; i++) {
     - if (((i == 0) || ((i +1) % 5 == 0)) && (i + 4 < bookshops.length)) {
         div(class="row")
-          +column(i)
-          +column(i + 1)
-          +column(i + 2)
-          +column(i + 3)
-          +column(i + 4)
+          - for (let c = 0; c < 5; c ++) {
+            +column(i+c)
+          -}
     - } else if ((i == 0) || ((i + 1) % 5 == 0)) {
-      -let counter = bookshops.length - i
+      -const counter = bookshops.length - i
       div(class="row")
         - for (let c = 0; c < counter; c ++) {
           +column(i+c)

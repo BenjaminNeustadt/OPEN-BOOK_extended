@@ -48,7 +48,7 @@ describe("The search function", () => {
     cy.get(".bookshop-name").first().should("contain", "Artwords Bookshop");
   })
 
-  it("searches by tags",() => {
+  xit("searches by tags",() => {
     cy.visit('/openbook');
     cy.get('.search-link').click();
     cy.get('#search').type("children");
@@ -74,7 +74,7 @@ describe("The search function", () => {
     cy.get(".bookshop-name").first().should('exist');
   })
 
-  it("searches by tags regardless of capitalisation",() => {
+  xit("searches by tags regardless of capitalisation",() => {
     cy.visit('/openbook');
     cy.get('.search-link').click();
     cy.get('#search').type("CHILDREN");
