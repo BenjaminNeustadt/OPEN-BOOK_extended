@@ -11,12 +11,15 @@ describe(Formatter,() => {
     expect(formatter.formatName("It's ME")).toEqual('itsme')
   })
 
-  xit('returns ids from an array of objects by formatting only the names',() => {
+  it('returns the array of objects with IDs',() => {
     const formatter = new Formatter();
     const bookshops = [
       {name: "Art Of Your's", address: ["53 The Street", "SE6 23S"]},
       {name: "Sarah's Books", address: ["Sarah's Home", "SE4 3SD"]}
     ]
-    expect(formatter.changeToIDS(bookshops)).toEqual(['artofyours', 'sarahsbooks']);
+    expect(formatter.addIDS(bookshops)).toEqual([
+      {name: "Art Of Your's", address: ["53 The Street", "SE6 23S"], divId: 'artofyours'},
+      {name: "Sarah's Books", address: ["Sarah's Home", "SE4 3SD"], divId: 'sarahsbooks'}
+    ]);
   })
 })
