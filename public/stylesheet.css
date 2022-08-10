@@ -150,18 +150,18 @@ body {
 }
 
 .search-container {
-  text-align: center;
+  text-align:left;
   font-family: var(--body-font);
-  background-color: white;
-  border: 2px solid var(--primary-color);
-  border-radius: 4px;
-  box-shadow: 6px 5px 5px #ddeedf;
-  padding: 20px 60px;
+  /* background-color: white; */
+  /* border: 2px solid var(--primary-color); */
+  /* border-radius: 4px; */
+  /* box-shadow: 6px 5px 5px #ddeedf; */
+  /* padding: 20px 60px;
   margin-left: auto;
-  margin-right: auto;
+  /* margin-right: auto; */
   margin-bottom: 30px;
   margin-top: 0px;
-  max-width: fit-content;
+  max-width: fit-content; */
 }
 
 .search {
