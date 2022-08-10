@@ -24,10 +24,7 @@ async function getShops() {
   const something = await res.json()
   console.log(something)
   const shops = something.data.map(shop => {
-    let hours = "";
-    let shopAddress = "";
-    shop.openingHours.forEach(e => hours += `${e}\n`);
-    shop.address.forEach(e => shopAddress += `${e}\n`);
+
     return {
           type: 'Feature',
           geometry: {
@@ -36,9 +33,9 @@ async function getShops() {
           },
           properties: {
             storeId: shop.name,
-            hours: hours,
+            hours: shop.openingHours,
             website: shop.website,
-            address: shopAddress,
+            address: shop.address,
             icon: 'shop'
           }
         }
