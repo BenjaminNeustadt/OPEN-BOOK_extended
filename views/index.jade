@@ -21,16 +21,18 @@ block content
 
   - for (let i = 0; i < bookshops.length; i++) {
     - if (((i == 0) || ((i +1) % 5 == 0)) && (i + 4 < bookshops.length)) {
+      div.container
         div(class="row shop-row")
           - for (let c = 0; c < 5; c ++) {
               +column(i+c)
           -}
     - } else if ((i == 0) || ((i + 1) % 5 == 0)) {
       -const counter = bookshops.length - i
-      div(class="row shop-row")
-        - for (let c = 0; c < counter; c ++) {
-          +column(i+c)
-        -}
+      div.container
+        div(class="row shop-row")
+          - for (let c = 0; c < counter; c ++) {
+            +column(i+c)
+          -}
      -} 
   - }
     
