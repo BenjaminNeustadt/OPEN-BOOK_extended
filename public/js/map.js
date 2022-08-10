@@ -104,10 +104,10 @@ const showMap = () => {
   let rows = document.querySelectorAll('.shop-row');
   if (buttonEl.innerHTML == "Map") {
     document.querySelector('#map').classList.remove('hide-map')
-    rows.forEach(row => row.classList.add('hide-rows'))
+    rows.forEach(row => row.classList.add('hide-list'))
     buttonEl.innerHTML = "List"
   } else {
-    rows.forEach(row => row.classList.remove('hide-rows'))
+    rows.forEach(row => row.classList.remove('hide-list'))
     document.querySelector('#map').classList.add('hide-map')
     buttonEl.innerHTML = "Map"
   }

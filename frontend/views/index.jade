@@ -2,14 +2,15 @@ include mixins
 extends ./layout
 block content 
   h1.title OpenBook
-  h2.search Search
-
-  form(action="/openbook/search/results", method="get")
-    input(id="search", type="text", name="search", value="") 
-    input(id="submit-search", type="submit", value="Search")
-
-
   button#toggle(onclick='showMap()') Map
+  div.search-container
+    h2.search Search
+    form(action="/openbook/search/results", method="get")
+      input(id="search", type="text", name="search", value="") 
+      input(id="submit-search", type="submit", value="Search")
+
+
+ 
 
   - for (let i = 0; i < bookshops.length; i++) {
     - if (((i == 0) || ((i +1) % 5 == 0)) && (i + 4 < bookshops.length)) {
@@ -27,7 +28,7 @@ block content
   - }
     
 
-    div.hide(id="map", style="width: 100%; height: 500px; border-radius: 5px")
+    div.hide-map(id="map", style="width: 100%; height: 500px; border-radius: 5px")
     
     script(src='js/map.js')
 

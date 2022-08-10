@@ -100,9 +100,10 @@ body {
 
 .hide-map {
   visibility: collapse;
+  
 }
 
 
-.hide-rows {
+.hide-list {
   display: none;
 }
