@@ -1,21 +1,29 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiemVpbnp6dSIsImEiOiJjbDZpajJoejEwMDRjM2pqdHk5OTR3c3NtIn0.K39ZfeJfxbHD6mq_lKxmjw';
 const map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/raphaella-rose/cl6o2azxu000a15laarotakgd',
+  style: 'mapbox://styles/raphaella-rose/cl6o4aqdn001014p7r8i493x2',
   zoom: 9,
   center: [-0.118092, 51.509865]
 });
 
 // OPTIONS/ NB
 
-// mapbox needs them to be in the order: longitude-latitude, else it will not center
 
-// style: 'mapbox://styles/mapbox/dark-v10'  - DARK
-// style: 'mapbox://styles/mapbox/light-v10' - LIGHT
+// Initial location centre options:
+
+// mapbox needs them to be in the order: longitude-latitude, else it will not center
 // London, longitude - latitude [-0.118092, 51.509865]
 // Paris, longitude - latitude [2.3522, 48.8566] 
 // New York, longitude - latitude [-74.005974, 40.712776]
 // Taipei, longitude - latitude [121.565414, 25.032969]
+
+// Style options:
+
+// style: 'mapbox://styles/mapbox/dark-v10'  - DARK
+// style: 'mapbox://styles/mapbox/light-v10' - LIGHT
+// style: 'mapbox://styles/raphaella-rose/cl6o2azxu000a15laarotakgd' - Primary color for the land, secondary color for the water
+// style: 'mapbox://styles/raphaella-rose/cl6o45ol9000z14p7paz9sv3y' - Grey for land, light blue for water
+// style: 'mapbox://styles/raphaella-rose/cl6o4aqdn001014p7r8i493x2'
 
 // Fetch stores from API
 async function getShops() {
