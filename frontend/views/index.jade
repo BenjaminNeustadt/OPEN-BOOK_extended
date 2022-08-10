@@ -9,7 +9,7 @@ block content
     input(id="submit-search", type="submit", value="Search")
 
 
-  button(onclick='showMap()') Map
+  button#toggle(onclick='showMap()') Map
 
   - for (let i = 0; i < bookshops.length; i++) {
     - if (((i == 0) || ((i +1) % 5 == 0)) && (i + 4 < bookshops.length)) {

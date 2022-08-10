@@ -104,5 +104,7 @@ const showMap = () => {
   document.querySelector('#map').classList.remove('hide')
   let rows = document.querySelectorAll('.shop-row');
   rows.forEach(row => row.classList.add('hide-rows'))
+  let buttonEl = document.querySelector('#toggle');
+  buttonEl.innerHTML = "List"
 
 }
