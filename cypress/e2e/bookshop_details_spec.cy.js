@@ -36,14 +36,6 @@ describe("The bookshop information", () => {
     cy.get("#roundtablebooks").find(".times").should("contain", "Saturday: 9:30am - 5:30pm");
   });
   
-  it('contains tags for bookshops', () => {
-    cy.visit('/openbook')
-    cy.get("#gaystheword").find(".tags").should('contain', '#LGBTQ')
-    cy.get("#gaystheword").find(".tags").should('contain', '#queer-owned')
-    cy.get("#roundtablebooks").find(".tags").should('contain', "#children")
-    cy.get("#roundtablebooks").find(".tags").should('contain', "#black-owned")
-    cy.get("#roundtablebooks").find(".tags").should('contain', "#inclusive")
-  })
 
 });
 
