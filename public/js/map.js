@@ -118,11 +118,16 @@ function loadMap(shops) {
 }
 
 const test = (feature) => {
-console.log(feature)
+
+let formattedHours = "";
+let formattedAddress = "";
+feature.properties.hours.forEach(line => formattedHours += `${line} <br/>`);
+feature.properties.address.forEach(line => formattedAddress += `${line} <br/>`);
+
 const name = feature.properties.storeId;
-const hours = feature.properties.hours;
+const hours = formattedHours;
 const website = feature.properties.website;
-const address = feature.properties.address;
+const address = formattedAddress;
 
 return `
       <a href=${website} target="_blank" >${name}</a>
