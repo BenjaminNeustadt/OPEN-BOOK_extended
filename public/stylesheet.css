@@ -46,6 +46,10 @@ body {
   color: var(--primary-color);
 }
 
+.bookshop-name:focus {
+  outline: none;
+}
+
 .row {
   padding: 0;
 }
@@ -96,6 +100,7 @@ body {
 }
 
 .mapboxgl-popup {
+  text-align: center;
   max-width: 400px;
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   }

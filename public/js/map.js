@@ -106,7 +106,7 @@ const website = feature.properties.website;
 const address = formattedAddress;
 
 return `
-      <a href=${website} target="_blank" >${name}</a>
+      <a class="bookshop-name" href=${website} target="_blank" >${name}</a>
       <br>
       <p>${hours}</p>
       <br>
