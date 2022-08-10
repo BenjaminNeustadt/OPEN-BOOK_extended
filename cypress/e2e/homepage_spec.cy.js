@@ -19,11 +19,23 @@ describe('The homepage', () => {
       })
   })
 
-  it("can toggle between map and list", () => {
+  it("can toggle from map to list", () => {
       cy.visit('/openbook');
       cy.get('#toggle').click()
       cy.get('#toggle').should('contain', 'List')
       cy.get('#map').should('be.visible')
       cy.get('.row').should('not.be.visible')
   })
+
+  it("can toggle from list to map", () => {
+    cy.visit('/openbook');
+    // click to show map
+    cy.get('#toggle').click()
+    // click to show list
+    cy.get('#toggle').click()
+
+    cy.get('#toggle').should('contain', 'Map')
+    cy.get('#map').should('not.be.visible')
+    cy.get('.row').should('be.visible')
+})
 })
