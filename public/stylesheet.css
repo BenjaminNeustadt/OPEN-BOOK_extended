@@ -219,3 +219,7 @@ body {
   height: 180px;
   margin-top: 10px;
 }
+
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
