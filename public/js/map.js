@@ -32,7 +32,7 @@ async function getShops() {
           },
           properties: {
             storeId: shop.name,
-            text: 'hello?',
+            text: shop.openingHours[0],
             icon: 'shop'
           }
         }
@@ -45,6 +45,7 @@ async function getShops() {
 // Load map with stores
 function loadMap(shops) {
     map.on('load', function() {
+
       map.addLayer({
         id: 'points',
         type: 'symbol',
@@ -65,15 +66,21 @@ function loadMap(shops) {
         'text-anchor': 'top'
       }
     });
+
   });
 }
+
+
 
 map.on('click', e => {
   const result = map.queryRenderedFeatures(e.point, { layers: ['points'] });
   if (result.length) {
-    const popup = new mapboxgl.Popup({container: 'map'});
+    console.log(result);
+    const popup = new mapboxgl.Popup();
+    const content = result[0].properties.text;
+    
     popup.setLngLat(e.lngLat)
-      .setHTML('<h1>PopUp</h1>test')
+      .setHTML(`${content}`)
       .addTo(map)
   }
   console.log('click', e.lnglat);
