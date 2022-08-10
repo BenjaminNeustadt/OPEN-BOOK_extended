@@ -1,10 +1,7 @@
-const Formatter = require("../../backend/models/formatter")
-
 class Search {
   constructor(search, bookshops) {
     this.search = search;
     this.bookshops = bookshops;
-    this.formatter = new Formatter;
     return this.findSearchResults()
   }
 
