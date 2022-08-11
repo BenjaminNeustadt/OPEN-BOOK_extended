@@ -89,6 +89,6 @@ describe("The search function", () => {
     cy.get('#search').type("rhythm in my soul");
     cy.get('#submit-search').click();
 
-    cy.get('#no-results-found').should('contain', 'No results found')
+    cy.get('#no-results-found').should('contain', '0 results found')
   })
 })
