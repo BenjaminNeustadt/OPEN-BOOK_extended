@@ -11,22 +11,25 @@ const showMap = () => {
     buttonEl.innerHTML = "Map"
 }
 
+const showList = () => {
+  document.querySelector('#map').classList.remove('hide-map')
+  map.resize()
+
+  rows.forEach(row => row.classList.add('hide-list'))
+  search.classList.add('hide-list')
+
+  buttonEl.innerHTML = "List"
+}
+
+
 const toggle = () => {
-
- 
+  
   if (buttonEl.innerHTML == "Map") {
-    document.querySelector('#map').classList.remove('hide-map')
-    map.resize()
-
-    rows.forEach(row => row.classList.add('hide-list'))
-    search.classList.add('hide-list')
-
-    buttonEl.innerHTML = "List"
+    showList()
   } else if (buttonEl.innerHTML == "List") {
     showMap()
   } else {
     location.href = "/openbook";
   }
-
 
 }
