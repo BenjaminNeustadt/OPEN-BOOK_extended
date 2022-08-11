@@ -1,6 +1,6 @@
-let buttonEl = document.querySelector('#toggle');
-let rows = document.querySelectorAll('.shop-row');
-let search = document.querySelector('.search-container');
+const buttonEl = document.querySelector('#toggle');
+const rows = document.querySelectorAll('.shop-row');
+const search = document.querySelector('.search-container');
 
 const showMap = () => {
   rows.forEach(row => row.classList.remove('hide-list'))
@@ -23,7 +23,7 @@ const showList = () => {
 
 
 const toggle = () => {
-  
+
   if (buttonEl.innerHTML == "Map") {
     showList()
   } else if (buttonEl.innerHTML == "List") {
