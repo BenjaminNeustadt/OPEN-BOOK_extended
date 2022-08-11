@@ -1,5 +1,7 @@
 # OPENBOOK
 
+<img src="/documents/presentation/glowing-title.png">
+
 By Team 5 (Raphaella, Osman, Benjamin, Kay, Ed)
 
 Tech stack:
@@ -23,6 +25,11 @@ Wireframes:
 
 ## Moodboard:
 <img src="/documents/mood-board/MOOD-BOARD.png">
+
+
+## Result:
+
+<img src="/documents/presentation/example-page.png">
 
 ## User stories
 
