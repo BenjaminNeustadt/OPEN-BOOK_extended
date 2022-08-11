@@ -123,7 +123,7 @@ getShops();
 
 
 const showMap = (searched) => {
-  console.log(searched)
+  console.log("clicked")
   let buttonEl = document.querySelector('#toggle');
   let rows = document.querySelectorAll('.shop-row');
   let search = document.querySelector('.search-container');

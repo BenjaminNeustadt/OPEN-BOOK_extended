@@ -3,7 +3,7 @@ extends ./layout
 block content 
   h1.title OpenBook
   
-  button#toggle(onclick='showMap(searched)') Map
+  button#toggle(onclick='showMap(#{searched})') Map
 
   div.search-container
     div.container
@@ -37,5 +37,5 @@ block content
 
     div.hide-map(id="map", style="width: 95%; height: 750px; border-radius: 5px; margin: 20px auto")
     
-    script(src='js/map.js')
+    script(src='/js/map.js')
 
