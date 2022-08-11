@@ -79,8 +79,6 @@ function loadMap(shops) {
       }
     },
     layout: {
-      // 'icon-image': '{icon}-15',
-      // 'icon-size': 1.5,
       'text-field': '{storeId}',
       'text-size': 10,
       'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
