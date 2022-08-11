@@ -102,4 +102,11 @@ describe("The search function", () => {
     cy.get('#toggle').click()
     cy.url().should('eq', 'http://localhost:3030/openbook')
   })
+
+  it("should redirect to home page when search input empty", () => {
+    cy.visit('/openbook')
+    cy.get('#submit-search').click();
+
+    cy.url().should('eq', 'http://localhost:3030/openbook')
+  })
 })
