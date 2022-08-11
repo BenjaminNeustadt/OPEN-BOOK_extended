@@ -1,4 +1,9 @@
-# OPENBOOK
+
+<img src="/documents/presentation/glowing-title-white.png" 
+     style=" display: block;
+             margin-left: auto;
+             margin-right: auto;
+             width: 50%;">
 
 By Team 5 (Raphaella, Osman, Benjamin, Kay, Ed)
 
@@ -16,6 +21,169 @@ Tech stack:
 
 ## Diagrams
 
+
+#### OVERVIEW
+
+                                                      ┌────────────────────┐
+                                                      │                    │
+                                                      │       ROUTES       │◄──────────────  HTTP Response
+                                                      │                    │                  (HTML)
+                                                      └─────────┬──────────┘
+                                                                │
+                                                          Forward request to
+     ┌────────────┐                                     appropriate controller
+     │            │                                             │
+     │            │                                   ┌─────────▼───────────┐
+     │            │       ┌─────────────┐             │                     │
+     ├────────────┤◄──────┤             ├────────────►│                     │
+     │  DATABASE  │       │             │             │    ┌───────────┐    │               HTTP Response
+     ├────────────┼──────►│    MODELS   │◄────────────┤    │CONTROLLERS│    ├─────────────►  (HTML)
+     │            │       │             │ read/write  │    └───────────┘    │
+     │            │       │             │    data     │                     │
+     │            │       └─────────────┘             │                     │
+     │            │                                   └───────────▲─────────┘
+     └────────────┘                                               │
+                                                                  │
+                                                                  │
+                                                         ┌────────┴─────────┐
+                                                         │                  │
+                                                         │      VIEWS       │
+                                                         │    (templates)   │
+                                                         │                  │
+                                                         └──────────────────┘
+
+#### MVC 
+
+
+
+                       ┌────────────┐       ┌────────┐      ┌─────────────┐            ┌─────────┐                    ┌───────┐
+                       │  CLIENT    │       │ ROUTES │      │ CONTROLLER  │            │  MODEL  │                    │ VIEW  │
+                       └────────────┘       └────────┘      └─────────────┘            └─────────┘                    └───────┘
+
+                     ┌─────────────────┐                  ┌─────────────────┐
+                     │                 │                  │                 │                               ┌─────────────────────────────┐
+                     │                 │                  │                 │                               │                             │
+                     │                 │       GET        │                 │            Request            │          HTML Home          │
+                     │                 ├─────────────────►│                 ├──────────────────────────────►│                             │
+                     │                 │                  │                 │                               │           INDEX             │
+                     │      HOME       │                  │                 │◄──────────────────────────────┤       (list all shops)      │
+                     │                 │                  │                 │              HTML             │                             │
+      Home Page      │  ('/openbook')  │                  │    index.js     │                               └─────────────────────────────┘
+                     │                 │                  │                 │
+                     │                 │                  │                 │
+                     │                 │                  │                 │
+                     │                 │◄─────────────────┤                 │
+                     │                 │     RESPONSE     │                 │          (database link)
+                     │                 │                  │                 │findAll┌──────────────────┐
+                     │                 │                  │                 ├──────▲│                  │     (user does not
+                     │                 │                  │                 │▼──────┤       Shop.js    │      need to be signed
+                     │                 │                  │                 │       │                  │      up to see lists)
+                     └─────────────────┘                  └─────────────────┘       └──────────────────┘
+                                                                             response
+
+
+
+
+
+                        ┌────────────┐       ┌────────┐      ┌─────────────┐            ┌─────────┐                    ┌───────┐
+                        │  CLIENT    │       │ ROUTES │      │ CONTROLLER  │            │  MODEL  │                    │ VIEW  │
+                        └────────────┘       └────────┘      └─────────────┘            └─────────┘                    └───────┘
+
+                      ┌─────────────────┐                  ┌─────────────────┐
+                      │                 │                  │                 │                               ┌─────────────────────────────┐
+                      │                 │                  │                 │                               │                             │
+                      │                 │       GET        │                 │            Request            │          HTML Home          │
+                      │     Users       ├─────────────────►│                 ├──────────────────────────────►│                             │
+                      │                 │                  │                 │                               │           INDEX             │
+                      │ ('/users/new')  │◄─────────────────┤                 │◄──────────────────────────────┤         (Lists all          │
+        USERS         │                 │                  │                 │              HTML             │          the posts)         │
+      (Sign up)       │                 │                  │  sessions.js    │                               └─────────────────────────────┘
+                      │                 │                  │                 │
+                      │                 │       POST       │                 │
+                      │ complete form   ├─────────────────▲│                 │
+                      │ & submit        │▼─────────────────┤                 │
+                      │                 │     RESPONSE     │                 │          (database link)
+                      │                 │                  │                 │create ┌──────────────────┐
+                      │                 │                  │                 ├──────▲│                  │     (user needs to be
+                      │                 │                  │                 │▼──────┤      User.js     │      signed up to post
+                      │                 │                  │                 │       │                  │      or favourite a shop)
+                      └─────────────────┘                  └─────────────────┘       └──────────────────┘
+                                                                              response
+
+
+
+
+
+                        ┌────────────┐       ┌────────┐        ┌─────────────┐            ┌─────────┐                  ┌───────┐
+                        │  CLIENT    │       │ ROUTES │        │ CONTROLLER  │            │  MODEL  │                  │ VIEW  │
+                        └────────────┘       └────────┘        └─────────────┘            └─────────┘                  └───────┘
+
+                      ┌─────────────────┐                  ┌─────────────────┐
+                      │                 │                  │                 │                               ┌─────────────────────────────┐
+                      │                 │                  │                 │                               │                             │
+                      │                 │                  │                 │            Request            │                             │
+                      │                 ├───────GET───────►│                 ├──────────────────────────────►│                             │
+                      │                 │                  │                 │                               │       HTML Sessions         │
+                      │     Session     │◄────RESPONSE─────┤                 │◄──────────────────────────────┤                             │
+       Sessions       │('/sessions/new')│                  │                 │              HTML             │                             │
+      (log  in)       │                 │                  │   sessions.js   │                               └─────────────────────────────┘
+                      │                 ├───────POST──────►│                 │
+                      │                 │                  │                 │
+                      │                 ◄◄────RESPONSE─────┤                 │
+                      │                 │                  │                 │
+                      │                 │     redirect/    │                 │          (database link)
+                      │                 │   users/account  │                 │findOne┌──────────────────┐
+                      │                 │                  │                 ├──────▲│                  │     (user needs to be
+                      │                 │                  │                 │▼──────┤      User.js     │      signed up to post
+                      │                 │                  │                 │       │                  │      or favourite a shop)
+                      └─────────────────┘                  └─────────────────┘       └──────────────────┘
+                                                                              response
+
+
+
+
+
+
+
+
+
+                         ┌────────────┐       ┌────────┐        ┌─────────────┐            ┌─────────┐                  ┌───────┐
+                         │  CLIENT    │       │ ROUTES │        │ CONTROLLER  │            │  MODEL  │                  │ VIEW  │
+                         └────────────┘       └────────┘        └─────────────┘            └─────────┘                  └───────┘
+
+                       ┌─────────────────┐                  ┌─────────────────┐
+                       │                 │                  │                 │                               ┌─────────────────────────────┐
+                       │                 │                  │                 │                               │                             │
+                       │                 │                  │                 │            Request            │                             │
+                       │                 ├───────GET───────►│                 ├──────────────────────────────►│           INDEX             │
+                       │                 │                  │                 │                               │         (Lists all          │
+                       │     Shops       │◄────RESPONSE─────┤                 │◄──────────────────────────────┤          the posts)         │
+        Users area     │ ('/shops/new')  │                  │                 │              HTML             │                             │
+                       │                 │                  │    shops.js     │                               └─────────────────────────────┘
+                       │                 ├───────POST──────►│                 │
+                       │                 │                  │                 │
+                       │                 ◄◄────RESPONSE─────┤                 │
+                       │                 │                  │                 │
+                       │                 │     redirect/    │                 │          (database link)
+                       │                 │   users/account  │                 │findOne┌──────────────────┐
+                       │                 │                  │                 ├──────▲│                  │     (user needs to be
+                       │                 │                  │                 │▼──────┤      User.js     │      signed up to post
+                       │                 │                  │                 │       │                  │      or favourite a shop)
+                       └─────────────────┘                  └──────────▲──┬───┘       └──────────────────┘
+                                                                       │  │    response
+                                                                       │  │
+                                                                       │  │           ┌──────────────────┐
+                                                                       │  └──────────►│                  │     findOne
+                                                                       │              │       Shop.js    │     findMany
+                                                                       └──────────────┤                  │     findAndModify
+                                                                                      └──────────────────┘
+
+
+
+
+
+
+
 Wireframes:
 <img src="/documents/wireframes/list-vs-map-wireframes.png">
 <img src="/documents/wireframes/wireframe-flow.png">
@@ -23,6 +191,11 @@ Wireframes:
 
 ## Moodboard:
 <img src="/documents/mood-board/MOOD-BOARD.png">
+
+
+## Result:
+
+<img src="/documents/presentation/example-page.png">
 
 ## User stories
 
@@ -107,20 +280,4 @@ so that integration tests do not interact with the development server.
   npm run test:integration  # integration tests only
   ```
 
-### MongoDB Atlas and Heroku
 
-Find instructions in the Documents directory for setting up a cloud database and deploying to Heroku.
-
-## MongoDB Connection Errors?
-
-Some people occasionally experience MongoDB connection errors when running the tests or trying to use the application. Here are some tips which might help resolve such issues.
-
-- Check that MongoDB is installed using `mongo --version`
-- Check that it's running using `brew services list`
-
-## Add the two bookshops to your local database
-
-* Run `mongosh`
-* Run `use OpenBook`
-* Run `db.bookshops.insertOne( { name: "Gay's the Word", address: ["66 Marchmont Street", "London", "WC1N 1AB"], website: "https://gaystheword.co.uk", openingHours: ['Monday - Saturday: 11am - 6pm', 'Sunday: 1pm - 6pm'], tags: ['LGBT', 'Queer-Owned'] } )`
-* Run `db.bookshops.insertOne( { name: "Round Table Books", address: ["97 Granville Arcade", "Coldharbour Lane", "Brixton", "London", "SW9 8PS"], website: "https://www.roundtablebooks.co.uk", openingHours:['Sunday - Friday: 11am - 5:30pm', 'Saturday: 9:30am - 5:30pm'], tags: ["Children's Books", 'Black-owned Business', 'Inclusive'] } )`
