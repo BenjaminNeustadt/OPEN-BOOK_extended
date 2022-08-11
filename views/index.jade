@@ -3,7 +3,12 @@ extends ./layout
 block content 
   h1.title OpenBook
   
+  -if (searched) {
+  button#toggle(onclick='showMap(#{searched})') Reset
+  -} else {
   button#toggle(onclick='showMap(#{searched})') Map
+  - }
+
 
   div.search-container
     div.container
