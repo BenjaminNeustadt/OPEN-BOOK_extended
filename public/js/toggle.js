@@ -1,4 +1,4 @@
-const showMap = (searched) => {
+const toggle = () => {
   
   let buttonEl = document.querySelector('#toggle');
   let rows = document.querySelectorAll('.shop-row');
