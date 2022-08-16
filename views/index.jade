@@ -1,9 +1,9 @@
 include mixins
 extends ./layout
-block content 
+block content
   h1.title OpenBook
   h2.heading Support Independent Bookshops
-  
+
   -if (searched) {
   button#toggle(onclick='toggle()') Reset
   -} else {
@@ -16,11 +16,11 @@ block content
       div.row.search-row
         div.search Search by name or genre
         form.search-form(action="/openbook/search/results", method="get")
-          input.search-input(id="search", type="text", name="search", value="", placeholder="eg. brick lane, lgbtq, history") 
+          input.search-input(id="search", type="text", name="search", value="", placeholder="eg. brick lane, lgbtq, history")
           input.search-submit(id="submit-search", type="submit", value="Search")
-  
+
   - if (searched) {
-      p#no-results-found #{bookshops.length} results found 
+      p#no-results-found #{bookshops.length} results found
   - }
 
   - for (let i = 0; i < bookshops.length; i++) {
@@ -37,12 +37,12 @@ block content
           - for (let c = 0; c < counter; c ++) {
             +column(i+c)
           -}
-     -} 
+     -}
   - }
-    
+
 
     div.hide-map(id="map", style="width: 95%; height: 750px; border-radius: 5px; margin: 20px auto")
-    
+
     script(src='/js/map.js')
     script(src='/js/toggle.js')
 
