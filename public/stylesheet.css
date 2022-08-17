@@ -20,6 +20,15 @@ body {
 
 /*adding here*/
 
+/* change background color */
+body.body.dark {
+  background-color: #2c4350;
+}
+/* change heading */
+body.dark h1.title {
+  color: #fff;
+}
+
 .theme {
   display: flex;
   position:absolute;
