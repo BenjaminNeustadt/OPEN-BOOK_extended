@@ -4,12 +4,14 @@ block content
   h1.title OpenBook
   h2.heading Support Independent Bookshops
 
-  div
-    input#checkbox.checkbox(type='checkbox')
-    label.label(for='checkbox')
-      i.fas.fa-moon
-      i.fas.fa-sun
-      .ball
+  div.theme
+    div
+      link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css")
+      input#checkbox.checkbox(type='checkbox')
+      label.label(for='checkbox')
+        i.fas.fa-moon
+        i.fas.fa-sun
+        .ball
 
 
   -if (searched) {
