@@ -18,6 +18,27 @@ body {
   background-color: var(--background-color);
 }
 
+/*adding here*/
+
+.checkbox {
+  opacity: 0;
+  position:absolute;
+}
+
+.label {
+  background-color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border-radius: 50px;
+  position: relative;
+  height: 26px;
+  width:50px;
+  transform: scale(1.5);
+}
+
+/*until here*/
 .title {
   color: var(--primary-color);
   font-family: var(--heading-font);

@@ -4,6 +4,14 @@ block content
   h1.title OpenBook
   h2.heading Support Independent Bookshops
 
+  div
+    input#checkbox.checkbox(type='checkbox')
+    label.label(for='checkbox')
+      i.fas.fa-moon
+      i.fas.fa-sun
+      .ball
+
+
   -if (searched) {
   button#toggle(onclick='toggle()') Reset
   -} else {
