@@ -38,6 +38,17 @@ body {
   transform: scale(1.5);
 }
 
+.ball {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 22px;
+  width: 22px;
+  transition: transform 0.2s linear;
+}
+
 /*until here*/
 .title {
   color: var(--primary-color);
