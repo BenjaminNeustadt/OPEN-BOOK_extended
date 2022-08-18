@@ -1,9 +1,6 @@
 include mixins
 extends ./layout
 block content
-  h1.title OpenBook
-  h2.heading Support Independent Bookshops
-
   div.theme
     div
       link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css")
@@ -12,7 +9,8 @@ block content
         i.fas.fa-moon
         i.fas.fa-sun
         .ball
-      script(src='script.js')
+  h1.title OpenBook
+  h2.heading Support Independent Bookshops
 
 
   -if (searched) {
@@ -56,4 +54,4 @@ block content
 
     script(src='/js/map.js')
     script(src='/js/toggle.js')
-
+    script(src='/js/script.js')
