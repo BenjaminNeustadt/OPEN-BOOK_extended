@@ -80,6 +80,11 @@ body.dark .search-submit {
   transition: ease-in-out 250ms;
 }
 
+body.dark .bookshop-name:visited:hover {
+  color:  #bac1be;
+}
+
+
 /*end of dark theme  */
 
 .theme {
