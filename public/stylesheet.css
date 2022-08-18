@@ -18,14 +18,13 @@ body {
   background-color: var(--background-color);
 }
 
-/*adding here*/
-
 /* dark theme alt */
+
 /* change background color */
 body.dark {
   background-color: #2c4350;
 }
-/* change heading */
+
 body.dark h1.title {
   color: var(--tertiary-color);
 }
@@ -40,8 +39,6 @@ body.dark .bookshop-container {
   border-radius: 4px;
   box-shadow: 6px 5px 5px;
   padding: 20px 20px;
-  /* margin: 30px 20px 30px 0; */
-  /* max-width: 240px; */
 }
 
 body.dark #toggle {
@@ -83,7 +80,6 @@ body.dark .search-submit {
 body.dark .bookshop-name:visited:hover {
   color:  #bac1be;
 }
-
 
 /*end of dark theme  */
 
