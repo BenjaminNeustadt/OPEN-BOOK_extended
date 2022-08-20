@@ -13,12 +13,13 @@
 [ Demo ](#demo)
 [ Tech Stack ](#stack)
 [ Planning process ](#plan)
+[ Quickstart ](#start)
 
 ---
 <a name="stack"></a>
-Tech stack:
 
-<p align="center">
+## Tech stack:
+
 
 - [Express](https://expressjs.com/) web framework for Node.js.
 - [Nodemon](https://nodemon.io/) to reload the server automatically.
@@ -30,20 +31,28 @@ Tech stack:
 - [MongoDB Atlas](https://www.mongodb.com/atlas/database) for AWS cloud database
 - [Heroku](https://www.heroku.com/) to deploy the app.
 
-</p>
+---
+## Demo
 
 <a name="demo"></a>
 <p align="center">
   <img src= "documents/gifs/open_book_demo.gif">
 </p>
 
+
+
+**[View heroku deployment here](http://open--book.herokuapp.com/openbook)**
+
+| :information_source:    | _The version currently deployed does not include the dark-mode toggle shown here._ |
+|---------------|:------------------------|
+
+---
 <a name="plan"></a>
 
 ## Planning Process
 ### Diagrams
 
-
-#### OVERVIEW
+#### _OVERVIEW_
 
                                                       ┌────────────────────┐
                                                       │                    │
@@ -73,7 +82,7 @@ Tech stack:
                                                          │                  │
                                                          └──────────────────┘
 
-#### MVC 
+#### _MVC_ 
 
 
 
@@ -203,38 +212,58 @@ Tech stack:
 
 
 
+#### _Wireframes_:
+<p align="center">
+   <img src="/documents/wireframes/list-vs-map-wireframes.png">
+</p>
+<p align="center">
+   <img src="/documents/wireframes/wireframe-flow.png">
+</p>
 
 
-Wireframes:
-<img src="/documents/wireframes/list-vs-map-wireframes.png">
-<img src="/documents/wireframes/wireframe-flow.png">
-
-
-## Moodboard:
-<img src="/documents/mood-board/MOOD-BOARD.png">
+### 
+<p align="center">
+   <img src="/documents/mood-board/MOOD-BOARD.png">
+</p>
 
 
 ## Result:
 
-<img src="/documents/presentation/example-page.png">
+<p align="center">
+   <img src="/documents/presentation/example-page.png">
+</p>
 
-## User stories
+### _User stories_
 
 Using TDD, we implemented the following user stories:
 
+```md
 As a user,  
 So I can ...  
 I'd like to be able to ...
+```
 
 ## Project management
 
-We used Trello to manage our project.
+- We used Trello to manage our project. [View our card wall here.](https://trello.com/b/aFp8R5at/open-book)
 
-[View our card wall](https://trello.com/b/aFp8R5at/open-book)
+- We defined a team-charter from the onset to establish the grounds for healthy and effective communication.
+- We distributed duties to different members of the team (rotating): 
+**Stand-up host** 
+ **Retro host**
+  **Ticket-board supervision**
+- We encouraged a little color/fun as part of the process:
 
+<p align="center">
+   <img width="800" height="300" src="/documents/gifs/start_up_color.gif">
+</p>
+
+---
+
+<a name="start"></a>
 ## Quickstart
 
-### Install Node.js
+#### Install Node.js
 
 1. Install Node Version Manager (NVM)
    ```
@@ -247,7 +276,7 @@ We used Trello to manage our project.
    nvm install 18
    ```
 
-### Set up your project
+#### Set up your project
 
 1. Fork this repository
 2. Rename your fork if desired to `OPENBOOK-<team name>`
@@ -268,7 +297,7 @@ We used Trello to manage our project.
    brew services start mongodb-community@5.0
    ```
 
-### Start
+#### Start
 
 1. Start the server
    ```
@@ -288,7 +317,7 @@ npm run start:test
 This starts the server on port `3030` and uses the `OPENBOOK_test` MongoDB database,
 so that integration tests do not interact with the development server.
 
-### Test
+#### Test
 
 - Run all tests
   ```
