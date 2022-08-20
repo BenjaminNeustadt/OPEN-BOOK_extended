@@ -10,11 +10,14 @@
 
 ---
 
->[ Demo ](#demo)
->[ Tech Stack ](#stack)
->[ Planning process ](#plan)
->[ Quickstart ](#start)
-> [Future features](#future)
+ <div align="center">
+    <a href="#demo">Demo</a> |
+    <a href="#stack">Tech Stack</a> |
+    <a href="#plan">Planning Process</a> |
+    <a href="#start">Quickstart</a> |
+    <a href="#future">Future Features</a> 
+ </div>
+
 ---
 <a name="stack"></a>
 
@@ -39,12 +42,12 @@
   <img src= "documents/gifs/open_book_demo.gif">
 </p>
 
-
-
-**[View heroku deployment here](http://open--book.herokuapp.com/openbook)**
+<div align="center">
+    <a href="http://open--book.herokuapp.com/openbook">View heroku deployment here</a>
+ </div>
+ <br>
 
  :information_source:   &nbsp; The version currently deployed **does not include** the dark-mode toggle shown here.
-
 
 ---
 <a name="plan"></a>
@@ -253,8 +256,8 @@ I'd like to be able to ...
 
 - We defined a team-charter from the onset to establish the grounds for healthy and effective communication.
 - We distributed duties to different members of the team (rotating): 
-**Stand-up host** 
- **Retro host**
+**Stand-up host**, 
+ **Retro host**,
   **Ticket-board supervision**
 - We encouraged a little color/fun as part of the process:
 
@@ -338,7 +341,6 @@ so that integration tests do not interact with the development server.
 <a name="future"></a>
 
 #### Future Features
-- **Advanced search** criteria that shows only shops within a given radius
+- **Advanced search** criteria that shows only shops within a given radius.
 - **Search function** extends to the map - displaying only shops that match search criteria.
-- A **Signup Feature** so that users can favourite locations
-
+- A **Signup Feature** so that users can favourite locations.
