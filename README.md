@@ -5,16 +5,16 @@
              margin-right: auto;
              width: 50%;">
 </p>
-<p align="center" style="font-weight:bold">by (Raphaella, Osman, Benjamin, Kay, Ed)</p>
+<p align="center">by (Raphaella, Osman, Benjamin, Kay, Ed)</p>
 
 
 ---
 
-[ Demo ](#demo)
-[ Tech Stack ](#stack)
-[ Planning process ](#plan)
-[ Quickstart ](#start)
-
+>[ Demo ](#demo)
+>[ Tech Stack ](#stack)
+>[ Planning process ](#plan)
+>[ Quickstart ](#start)
+> [Future features](#future)
 ---
 <a name="stack"></a>
 
@@ -255,7 +255,7 @@ I'd like to be able to ...
 - We encouraged a little color/fun as part of the process:
 
 <p align="center">
-   <img width="800" height="300" src="/documents/gifs/start_up_color.gif">
+   <img src="/documents/gifs/start_up_color.gif">
 </p>
 
 ---
@@ -329,5 +329,12 @@ so that integration tests do not interact with the development server.
   npm run test:unit         # unit tests only
   npm run test:integration  # integration tests only
   ```
+---
 
+<a name="future"></a>
+
+#### Future Features
+- **Advanced search** criteria that shows only shops within a given radius
+- **Search function** extends to the map - displaying only shops that match search criteria.
+- A **Signup Feature** so that users can favourite locations
 
