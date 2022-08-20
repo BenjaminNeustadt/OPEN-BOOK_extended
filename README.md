@@ -233,6 +233,10 @@
    <img src="/documents/presentation/example-page.png">
 </p>
 
+<p align="center">
+   <img src="/documents/presentation/openbook_result_dark.png">
+</p>
+
 ### _User stories_
 
 Using TDD, we implemented the following user stories:
