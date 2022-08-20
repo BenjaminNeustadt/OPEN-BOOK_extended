@@ -1,11 +1,11 @@
-
+<p align="center">
 <img src="/documents/presentation/glowing-title-white.png" 
      style=" display: block;
              margin-left: auto;
              margin-right: auto;
              width: 50%;">
-
-<p align="center">By Team 5 (Raphaella, Osman, Benjamin, Kay, Ed)</p>
+</p>
+<p align="center" style="font-weight:bold">by (Raphaella, Osman, Benjamin, Kay, Ed)</p>
 
 
 ---
@@ -43,8 +43,8 @@
 
 **[View heroku deployment here](http://open--book.herokuapp.com/openbook)**
 
-| :information_source:    | _The version currently deployed does not include the dark-mode toggle shown here._ |
-|---------------|:------------------------|
+ :information_source:   &nbsp; The version currently deployed **does not include** the dark-mode toggle shown here.
+
 
 ---
 <a name="plan"></a>
