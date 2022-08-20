@@ -5,9 +5,20 @@
              margin-right: auto;
              width: 50%;">
 
-By Team 5 (Raphaella, Osman, Benjamin, Kay, Ed)
+<p align="center">By Team 5 (Raphaella, Osman, Benjamin, Kay, Ed)</p>
 
+
+---
+
+[ Demo ](#demo)
+[ Tech Stack ](#stack)
+[ Planning process ](#plan)
+
+---
+<a name="stack"></a>
 Tech stack:
+
+<p align="center">
 
 - [Express](https://expressjs.com/) web framework for Node.js.
 - [Nodemon](https://nodemon.io/) to reload the server automatically.
@@ -19,7 +30,17 @@ Tech stack:
 - [MongoDB Atlas](https://www.mongodb.com/atlas/database) for AWS cloud database
 - [Heroku](https://www.heroku.com/) to deploy the app.
 
-## Diagrams
+</p>
+
+<a name="demo"></a>
+<p align="center">
+  <img src= "documents/gifs/open_book_demo.gif">
+</p>
+
+<a name="plan"></a>
+
+## Planning Process
+### Diagrams
 
 
 #### OVERVIEW
