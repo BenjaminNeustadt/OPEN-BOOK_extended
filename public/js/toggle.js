@@ -7,7 +7,7 @@ const showMap = () => {
     search.classList.remove('hide-list')
 
     document.querySelector('#map').classList.add('hide-map')
-    
+
     buttonEl.innerHTML = "Map"
 }
 
